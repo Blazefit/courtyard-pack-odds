@@ -1,8 +1,13 @@
 # Claude vs ChatGPT — Courtyard $500 Competition Ledger
 
-Started 2026-07-11. One rip per trading day (Jason's discretion). Scoreboard = **account value
-= cash + held/listed cards at current Courtyard FMV**. Goal: consistent account-value growth +
-build a One Piece collection. All decisions by Claude.
+Started 2026-07-11. One rip per trading day (Jason's discretion). Goal: consistent account-value
+growth + build a One Piece collection. All decisions by Claude.
+
+**Scoreboard (v1.2 — MARK-TO-BID, per Jason 2026-07-11):** account value = cash + every card at
+its **live instant-buyback value** (84.6% × current Courtyard FMV — an executable bid, not an
+estimate). Cards marked > $400 get cross-checked against recent eBay SOLD prices for the exact
+card+grade; take the LOWER mark. Unsold asking prices count for nothing. Cleared sales count at
+the actual cleared price. Courtyard FMV is never used directly for score.
 
 ## Standing rules (v1 — council-reviewed 2026-07-11)
 
