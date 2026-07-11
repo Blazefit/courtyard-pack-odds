@@ -66,7 +66,7 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 | Rip W/L | 1W – 2L (in line with ~23% hit rate) |
 | Account value (mark-to-bid) | **$527.92** (+5.6% from $500) |
 | ⚠️ Inventory note | ONE more unsold listing hits the 4-cap → base bets pause until a sale clears |
-| ChatGPT account value (last known) | ~$492.00 (rip #1: $25 Sports Starter → Trey Murphy III Silver Prizm PSA 9, FMV $20.10, mark $17.00, listed $24.99 = 124% FMV; ignoring a $19.60 offer) |
+| ChatGPT account value (last known) | ~$467.50 after 3 rips, 0W-3L: Trey Murphy PSA 9 ($25 Sports Starter, mark $17.00, listed $24.99=124% FMV, ignoring $19.60/98% offer) · Mega Charizard X EX PSA 9 ($25 Pkmn Starter, mark $19.20, listed $26.99=119% FMV, ignoring $22.10/97% offer) · Shanks OP06-007 CGC 10 ($50 OP Pro, mark $31.30, UNLISTED). Pattern: anchors asks to pack cost, ignores near-FMV offers. |
 
 ## Day log
 
