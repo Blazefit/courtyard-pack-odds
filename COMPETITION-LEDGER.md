@@ -72,8 +72,13 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 |---|------|------|------|--------------------|-----|------------|----------|-----------|-----------|
 | 1 | 2026-07-11 | One Piece Pro Pack | $50 | Kyros EB01-040 (Borderless) Alt Art, Leader Parallel — Memorial Collection 2024 (CGC 10 PRISTINE) | $46.70 | $39.51 | LIST @ $52 (leader alt-art segment +30.7% YTD; not core crew → no collection slot; buyback = −$10.49, rejected) | $450.00 | $489.51 |
 
-## Reprice queue
+## Reprice queue (calendar-based — check FIRST at every Jason check-in and surface due actions)
 
-| Card | Listed | At | Reprice 1 (after 5 trading days) | Reprice 2 (after 10) |
-|------|--------|----|----------------------------------|----------------------|
-| Kyros EB01-040 CGC 10 | 2026-07-11 | $52 | $49 | $47 |
+| Card | Listed | Current price | Drop to $49 on | Drop to $47 on | If still unsold 2026-08-01 |
+|------|--------|--------------|----------------|----------------|---------------------------|
+| Kyros EB01-040 CGC 10 | 2026-07-11 | $52 | 2026-07-18 | 2026-07-25 | reassess: hold-as-asset vs fire-sale vs buyback (bid then current) |
+
+**Standing protocol:** at EVERY check-in (trade day or not): (1) report each listing's age, price,
+and current buyback bid; (2) if today ≥ a reprice date, tell Jason the exact new price to set;
+(3) if a listing SOLD, book the cleared price to cash, update step-up progress ($199 unlocks
+Summer Pull Party), and re-mark the account.
