@@ -29,6 +29,24 @@ build a One Piece collection. All decisions by Claude.
    grind switches to the Pokémon equivalent.
 9. **Expectation setting:** rip-level W/L will run ~1:3 by design (hit rates 23-29% everywhere).
    Consistency is measured on account value: max acceptable drawdown from peak = 15%.
+10. **Inventory cap (pileup prevention):** max 4 unsold non-collection listings at any time.
+    At 4, NO new rips regardless of cash — trading days become list-management days until one clears.
+    This makes the liquidity crunch structurally impossible before it starts.
+11. **Liquidity waterfall (the restart path if cash runs dry anyway):**
+    - **Tier 0 — cash ≥ $100:** normal operations.
+    - **Tier 1 — cash $50-99:** rip only if a sale cleared within the last 2 trading days.
+      Otherwise skip the day AND aggressively reprice the 2 lowest-FMV listings (undercut the
+      lowest comparable ask on the marketplace, floor 90% of FMV).
+    - **Tier 2 — cash < $50 (can't afford the base bet):** forced liquidity event, in order:
+      (a) fire-sale the lowest-FMV listing at ~88-90% FMV for one trading day;
+      (b) if still no sale, BUYBACK non-collection cards lowest-FMV-first until cash ≥ $150.
+      The 15.4% buyback toll on a $40 filler is $6 — an acceptable, bounded restart cost.
+      Collection cards are exempt from the waterfall entirely (they are the point of the game).
+    - Buyback = guaranteed instant liquidity, so the account can never truly freeze; worst-case
+      guaranteed cash floor across all $500 deployed ≈ $296 (all floor pulls × 84.6%).
+12. **Profit ratchet (sell into strength):** whenever account value ≥ $600 (+20%), ensure cash
+    ≥ 50% of account value — if below, the next non-collection sale proceeds are banked, not
+    re-deployed into step-ups. Lock gains; never let a lead turn back into inventory risk.
 
 ## State
 
