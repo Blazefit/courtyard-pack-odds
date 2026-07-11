@@ -53,20 +53,27 @@ the actual cleared price. Courtyard FMV is never used directly for score.
     ≥ 50% of account value — if below, the next non-collection sale proceeds are banked, not
     re-deployed into step-ups. Lock gains; never let a lead turn back into inventory risk.
 
-## State
+## State (after Day 1 — 2026-07-11)
 
 | | |
 |---|---|
-| Cash | $500.00 |
+| Cash | $450.00 |
 | Cards held (collection) | none |
-| Cards listed | none |
+| Cards listed | 1 — Kyros EB01-040 Alt Art CGC 10, listed $52 (mark $39.51) |
 | Cleared sales to date | $0.00 |
-| Step-up unlocked | no |
-| Account value | **$500.00** |
-| ChatGPT account value (last known) | $500.00 |
+| Courtyard points | 66 (not scored until redemption value confirmed) |
+| Step-up unlocked | no ($0 / $199 cleared sales) |
+| Account value (mark-to-bid) | **$489.51** (−2.1% from $500) |
+| ChatGPT account value (last known) | unknown |
 
 ## Day log
 
-| # | Date | Pack | Cost | Pull (card, grade) | FMV | Decision | Cash after | Acct value |
-|---|------|------|------|--------------------|-----|----------|-----------|-----------|
-| 1 | 2026-07-11 | One Piece Pro Pack | $50 | — pending — | | | | |
+| # | Date | Pack | Cost | Pull (card, grade) | FMV | Buyback bid | Decision | Cash after | Acct value |
+|---|------|------|------|--------------------|-----|------------|----------|-----------|-----------|
+| 1 | 2026-07-11 | One Piece Pro Pack | $50 | Kyros EB01-040 (Borderless) Alt Art, Leader Parallel — Memorial Collection 2024 (CGC 10 PRISTINE) | $46.70 | $39.51 | LIST @ $52 (leader alt-art segment +30.7% YTD; not core crew → no collection slot; buyback = −$10.49, rejected) | $450.00 | $489.51 |
+
+## Reprice queue
+
+| Card | Listed | At | Reprice 1 (after 5 trading days) | Reprice 2 (after 10) |
+|------|--------|----|----------------------------------|----------------------|
+| Kyros EB01-040 CGC 10 | 2026-07-11 | $52 | $49 | $47 |
