@@ -1,0 +1,441 @@
+[
+ {
+  "category": "pokemon",
+  "monthly": [
+   {
+    "month": "2025-07",
+    "value": 100.0
+   },
+   {
+    "month": "2025-08",
+    "value": 105.8
+   },
+   {
+    "month": "2025-09",
+    "value": 113.1
+   },
+   {
+    "month": "2025-10",
+    "value": 128.6
+   },
+   {
+    "month": "2025-11",
+    "value": 135.7
+   },
+   {
+    "month": "2025-12",
+    "value": 142.7
+   },
+   {
+    "month": "2026-01",
+    "value": 151.6
+   },
+   {
+    "month": "2026-02",
+    "value": 162.2
+   },
+   {
+    "month": "2026-03",
+    "value": 184.6
+   },
+   {
+    "month": "2026-04",
+    "value": 240.5
+   },
+   {
+    "month": "2026-05",
+    "value": 252.4
+   },
+   {
+    "month": "2026-06",
+    "value": 274.1
+   },
+   {
+    "month": "2026-07",
+    "value": 299.7
+   }
+  ],
+  "unit": "Card Ladder Pokemon Index normalized to 100 at start of July 2025 (raw index: 25,784 on 2025-07-06 to 77,267 on 2026-07-10; tracks ~9,496 graded cards, ~$4.48B market cap)",
+  "change3m": 23.6,
+  "change6m": 93.1,
+  "change12m": 193.1,
+  "estimated": false,
+  "sources": [
+   "https://www.cardladder.com/indexes/pokemon",
+   "https://finance.yahoo.com/news/pok-mon-cards-3-261-140108492.html",
+   "https://www.cnbc.com/2026/03/29/pokemon-card-values-rise-logan-paul-pikachu-auction.html",
+   "https://www.pokemonpricetracker.com/blog/posts/pokemon-card-market-crash-2026-what-really-happened"
+  ],
+  "narrative": "Graded Pokemon cards were one of the best-performing asset classes of the year: the Card Ladder Pokemon Index nearly tripled, up 193% from July 2025 to July 2026. Gains were steady through H2 2025 (+43% Jul-Dec) then went vertical in Feb-Apr 2026 (+48% in that window alone) as Pokemon's 30th-anniversary hype, record PSA submission volume (26.8M cards graded in 2025; 97 of PSA's top-100 graded cards were Pokemon), and mainstream moments like the Logan Paul Pikachu auction pulled in new money, with vintage high-grade WOTC slabs leading. The rally was still intact in July 2026 (+23.6% over the trailing 3 months), even as low-end modern singles quietly corrected 30-50% beneath the index's vintage-weighted surface.",
+  "group": "pkmn",
+  "label": "Pokémon — graded cards"
+ },
+ {
+  "category": "onepiece",
+  "monthly": [
+   {
+    "month": "2025-07",
+    "value": 100
+   },
+   {
+    "month": "2025-08",
+    "value": 107
+   },
+   {
+    "month": "2025-09",
+    "value": 119
+   },
+   {
+    "month": "2025-10",
+    "value": 136
+   },
+   {
+    "month": "2025-11",
+    "value": 163
+   },
+   {
+    "month": "2025-12",
+    "value": 192
+   },
+   {
+    "month": "2026-01",
+    "value": 219
+   },
+   {
+    "month": "2026-02",
+    "value": 230
+   },
+   {
+    "month": "2026-03",
+    "value": 218
+   },
+   {
+    "month": "2026-04",
+    "value": 210
+   },
+   {
+    "month": "2026-05",
+    "value": 227
+   },
+   {
+    "month": "2026-06",
+    "value": 234
+   },
+   {
+    "month": "2026-07",
+    "value": 238
+   }
+  ],
+  "unit": "Index of One Piece TCG graded/chase singles market value (Card Ladder-anchored), July 2025 = 100",
+  "change3m": 13.3,
+  "change6m": 8.7,
+  "change12m": 138,
+  "sources": [
+   "https://www.cardladder.com/indexes/onepiece",
+   "https://cardchat.substack.com/p/the-one-piece-card-boom-explained",
+   "https://one-piece-tcg.com/guides/one-piece-tcg-investment-market-analysis-2026",
+   "https://tcgking.nl/blogs/investing",
+   "https://www.si.com/collectibles/monkey-d-luffy-card-prices-surge-215-as-one-piece-demand-explodes",
+   "https://tcgaegis.com/blog/en/one-piece-tcg-prices"
+  ],
+  "narrative": "One Piece TCG graded and chase singles were among the hottest collectible asset classes of the year: Card Ladder's One Piece index gained ~119% in the six months to late January 2026 (+61.4% in three months), fueled by the November 2025 OP-13 launch, six-figure record sales (Luffy PSA 10 $99.7K, a $315.6K CGC 10 gold promo), and record grading volume with Luffy the #3 most-graded TCG card at PSA. A February-April 2026 index-level pullback (~-9% from the early-February blowoff peak) gave way to a manga-rare and vintage-sealed-led recovery into summer, leaving the class up roughly +138% year over year with 20-50% weekly volatility on individual chase cards.",
+  "estimated": true,
+  "group": "onepiece",
+  "label": "One Piece TCG"
+ },
+ {
+  "category": "sports",
+  "monthly": [
+   {
+    "month": "2025-07",
+    "value": 100.0
+   },
+   {
+    "month": "2025-08",
+    "value": 102.8
+   },
+   {
+    "month": "2025-09",
+    "value": 104.0
+   },
+   {
+    "month": "2025-10",
+    "value": 105.3
+   },
+   {
+    "month": "2025-11",
+    "value": 106.5
+   },
+   {
+    "month": "2025-12",
+    "value": 108.0
+   },
+   {
+    "month": "2026-01",
+    "value": 110.0
+   },
+   {
+    "month": "2026-02",
+    "value": 112.5
+   },
+   {
+    "month": "2026-03",
+    "value": 115.5
+   },
+   {
+    "month": "2026-04",
+    "value": 117.5
+   },
+   {
+    "month": "2026-05",
+    "value": 119.0
+   },
+   {
+    "month": "2026-06",
+    "value": 120.0
+   },
+   {
+    "month": "2026-07",
+    "value": 121.0
+   }
+  ],
+  "unit": "Index, July 2025 = 100 — estimated CL50-style composite of graded sports cards (baseball, basketball, football, hockey, soccer), interpolated between eight sourced anchor points",
+  "estimated": true,
+  "change3m": 3.0,
+  "change6m": 10.0,
+  "change12m": 21.0,
+  "subIndices": {
+   "basketball": 18,
+   "football": 6,
+   "baseball": 15,
+   "soccer": 60
+  },
+  "sources": [
+   "https://sports.yahoo.com/article/move-over-baseball-basketball-cards-203000093.html",
+   "https://sports.yahoo.com/article/hobby-bull-market-real-spectacular-150000363.html",
+   "https://www.si.com/collectibles/state-of-the-hobby-booming-card-sales-wax-prices",
+   "https://www.si.com/collectibles/gold-silver-stocks-baseball-cards-outperforming-traditional-assets",
+   "https://www.nerdbeak.com/news/sports-card-market-record-pace-march-2026",
+   "https://www.cllct.com/sports-collectibles/sports-cards/the-hobby-is-off-to-a-record-breaking-start-in-2026"
+  ],
+  "narrative": "Graded sports cards rode a genuine bull market over the year: record online sales in June-August 2025 ($308M in July, $400M+ in August), the Card Ladder CL50 up roughly 28% in calendar 2025, and a record-shattering start to 2026 with March sales of $606M (double the prior year) and every Card Ladder index positive over the trailing 12 months as of May 2026. Gains were led by high-end vintage (iconic Mantle/Ruth/Robinson cards up 67-112% YoY) and basketball (+~18% YoY, soccer +~60%), while football lagged (+~6%) and low-end modern drew oversupply warnings. Momentum plateaued slightly in June 2026 as PSA paused value-tier grading under a 10M+ card backlog, leaving the composite up ~21% for the window.",
+  "group": "sports",
+  "label": "Sports Cards — graded"
+ },
+ {
+  "category": "watches",
+  "monthly": [
+   {
+    "month": "2025-07",
+    "value": 100.0
+   },
+   {
+    "month": "2025-08",
+    "value": 99.9
+   },
+   {
+    "month": "2025-09",
+    "value": 100.5
+   },
+   {
+    "month": "2025-10",
+    "value": 100.4
+   },
+   {
+    "month": "2025-11",
+    "value": 100.6
+   },
+   {
+    "month": "2025-12",
+    "value": 101.7
+   },
+   {
+    "month": "2026-01",
+    "value": 102.5
+   },
+   {
+    "month": "2026-02",
+    "value": 103.1
+   },
+   {
+    "month": "2026-03",
+    "value": 103.2
+   },
+   {
+    "month": "2026-04",
+    "value": 105.4
+   },
+   {
+    "month": "2026-05",
+    "value": 103.9
+   },
+   {
+    "month": "2026-06",
+    "value": 104.3
+   },
+   {
+    "month": "2026-07",
+    "value": 104.5
+   }
+  ],
+  "unit": "WatchCharts Overall Market Index (300 watches, top 10 brands, transaction-value weighted), month-end level normalized to July 2025 = 100; built from WatchCharts' published month-over-month changes",
+  "change3m": -0.9,
+  "change6m": 2.0,
+  "change12m": 4.5,
+  "sources": [
+   "https://watchcharts.com/watches/price_index",
+   "https://watchcharts.com/articles/p/9374/june-2026-watch-market-update",
+   "https://watchcharts.com/articles/p/9033/december-and-full-year-2025-watch-market-update",
+   "https://www.forbes.com/sites/garthfriesen/2026/05/11/luxury-watch-prices-are-rising-again-with-big-gains-in-small-watches/",
+   "https://www.bloomberg.com/news/articles/2026-01-08/luxury-watch-prices-hit-a-two-year-high-in-the-secondary-market"
+  ],
+  "narrative": "The secondary watch market bottomed in mid-2025 and staged a broad, steady recovery: small monthly gains through H2 2025 (Bloomberg's Subdial index rose 8% in calendar 2025, hitting a two-year high), then acceleration into Watches & Wonders 2026 (+2.1% in April, with the discontinued Rolex GMT 'Pepsi' up ~12% in Q1) before a -1.4% May correction as event hype faded. Morgan Stanley/WatchCharts logged three consecutive quarters of >1% gains through Q1 2026, with 71% of tracked brands positive; Patek Philippe led 12-month gains at +18%, with Rolex and Cartier each around +9%. Broad-index compounding gives ~+4.5% for the 12 months; hotter headline figures (~+9-10%) measure narrower subsets.",
+  "estimated": true,
+  "rolex12m": 9,
+  "group": "watches",
+  "label": "Luxury Watches"
+ },
+ {
+  "category": "comics",
+  "monthly": [
+   {
+    "month": "2025-07",
+    "value": 100.0
+   },
+   {
+    "month": "2025-08",
+    "value": 99.7
+   },
+   {
+    "month": "2025-09",
+    "value": 99.5
+   },
+   {
+    "month": "2025-10",
+    "value": 99.2
+   },
+   {
+    "month": "2025-11",
+    "value": 98.9
+   },
+   {
+    "month": "2025-12",
+    "value": 98.6
+   },
+   {
+    "month": "2026-01",
+    "value": 98.5
+   },
+   {
+    "month": "2026-02",
+    "value": 99.1
+   },
+   {
+    "month": "2026-03",
+    "value": 99.9
+   },
+   {
+    "month": "2026-04",
+    "value": 101.0
+   },
+   {
+    "month": "2026-05",
+    "value": 102.3
+   },
+   {
+    "month": "2026-06",
+    "value": 103.9
+   },
+   {
+    "month": "2026-07",
+    "value": 104.0
+   }
+  ],
+  "unit": "Equal-weight composite of GoCollect Silver Age, Bronze Age, and Modern Age Collectible Price Indices (CPI) for CGC-graded key issues, normalized to July 2025 = 100",
+  "change3m": 3.0,
+  "change6m": 5.6,
+  "change12m": 4.0,
+  "sources": [
+   "https://gocollect.com/cpi/comics/overview",
+   "https://gocollect.com/blog/cpi-2025-year-in-review",
+   "https://gocollect.com/blog/modern-age-leading-a-market-comeback",
+   "https://gocollect.com/blog/state-of-the-comic-book-market-2025",
+   "https://www.thecollectorhub.xyz/articles/2025-year-in-review-top-of-the-stack-cgc-graded-comics"
+  ],
+  "narrative": "Graded comics spent H2 2025 grinding out the bottom of a 3.5-year bear market, with GoCollect's Silver Age CPI finishing 2025 down 6.18% and Bronze Age down 6.66% while Modern Age keys (Invincible #1, Walking Dead #1, NYX #3) eked out +2.36%. The market inflected in early 2026: from January to late June the Modern Age CPI surged about 15.3%, Bronze turned positive (+0.86%), and Silver flattened (-0.06%), producing a Modern-led composite gain of roughly +4% over the 12 months. Vintage keys stabilized rather than rallied, with Golden Age and blue-chip first appearances holding value best while speculative moderns without media catalysts stayed well below 2021-2023 peaks.",
+  "estimated": true,
+  "group": "comics",
+  "label": "Comics — CGC graded"
+ },
+ {
+  "category": "coins",
+  "monthly": [
+   {
+    "month": "2025-07",
+    "value": 100.0
+   },
+   {
+    "month": "2025-08",
+    "value": 99.92
+   },
+   {
+    "month": "2025-09",
+    "value": 99.84
+   },
+   {
+    "month": "2025-10",
+    "value": 99.75
+   },
+   {
+    "month": "2025-11",
+    "value": 99.67
+   },
+   {
+    "month": "2025-12",
+    "value": 99.59
+   },
+   {
+    "month": "2026-01",
+    "value": 99.51
+   },
+   {
+    "month": "2026-02",
+    "value": 99.43
+   },
+   {
+    "month": "2026-03",
+    "value": 99.34
+   },
+   {
+    "month": "2026-04",
+    "value": 99.62
+   },
+   {
+    "month": "2026-05",
+    "value": 99.57
+   },
+   {
+    "month": "2026-06",
+    "value": 99.31
+   },
+   {
+    "month": "2026-07",
+    "value": 99.31
+   }
+  ],
+  "unit": "PCGS3000 Rare Coin Index, normalized to July 2025 reading ($73,590.83 on 7/28/2025) = 100; latest real reading $73,083.23 on 6/25/2026, carried into July 2026",
+  "change3m": -0.31,
+  "change6m": -0.2,
+  "change12m": -0.69,
+  "sources": [
+   "https://www.pcgs.com/prices/coin-index/pcgs3000",
+   "http://web.archive.org/web/20260626152247/https://www.pcgs.com/prices/coin-index/pcgs3000",
+   "http://web.archive.org/web/20250802173107/https://www.pcgs.com/prices/coin-index/pcgs3000",
+   "https://coinweek.com/cac-coins-bring-huge-auction-premiums-in-may-2026/"
+  ],
+  "narrative": "Graded rare US coins were essentially flat over the period: the PCGS3000 index peaked at $73,590.83 on 7/28/2025 (its 12-month high) and ended at $73,083.23 on 6/25/2026, down 0.7% from that peak and just 0.1% above its 12-month low. Gold's big run (spot ~$3,363/oz in Aug 2025 to ~$4,083/oz in June 2026, +21%) lifted bullion and generic gold coin material but did not translate into broad rare-coin index gains, which stayed inside a razor-thin ~0.8% band all year. Strength was concentrated in premium quality segments, with CAC-stickered coins commanding large auction premiums in 2026 while the broad index drifted sideways.",
+  "estimated": true,
+  "group": "coins",
+  "label": "Graded Coins"
+ }
+]

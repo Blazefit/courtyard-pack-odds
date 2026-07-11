@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Courtyard.io — Pack Odds &amp; Collection Trends</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1017'/%3E%3Cpath d='M8 22 L14 12 L19 18 L24 8' stroke='%233987e5' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="description" content="Which Courtyard.io packs give the best odds, and how each collection (Pokémon, sports, One Piece, coins, watches, comics) has moved over the last year.">
+<style>
+:root{
+  --bg:#0a0d13; --plane:#0d1017; --surface:#131720; --surface-2:#1a2030;
+  --ink:#f2f4f8; --ink-2:#b9c0cf; --muted:#8a91a3;
+  --grid:#232a3a; --baseline:#333c52;
+  --c-pkmn:#3987e5; --c-sports:#199e70; --c-onepiece:#c98500; --c-coins:#008300;
+  --c-watches:#9085e9; --c-comics:#e66767; --c-mtg:#d55181; --c-wild:#d95926;
+  --good:#0ca30c; --bad:#d03b3b;
+  --radius:18px; --radius-sm:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(57,135,229,.14), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(144,133,233,.10), transparent 55%),
+    var(--bg);
+  color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+header.hero{padding-top:clamp(48px,8vw,96px);padding-bottom:clamp(28px,4vw,48px)}
+.kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+h1{font-size:clamp(1.9rem,4.6vw,3.4rem);line-height:1.08;font-weight:800;letter-spacing:-.02em}
+h1 .accent{background:linear-gradient(100deg,#3987e5,#9085e9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:62ch;color:var(--ink-2);margin-top:16px;font-size:1.02rem}
+.stamp{margin-top:14px;font-size:.8rem;color:var(--muted)}
+section{padding:clamp(28px,4vw,52px) 0}
+h2{font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:750;letter-spacing:-.01em;margin-bottom:6px}
+.lede{color:var(--ink-2);max-width:70ch;margin-bottom:24px}
+.card{
+  background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.015) 45%,rgba(255,255,255,0)) , var(--surface);
+  border-radius:var(--radius); padding:clamp(16px,2.6vw,28px);
+  box-shadow:0 18px 50px -22px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.statrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:26px 0 8px}
+.stat{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,0)),var(--surface);border-radius:var(--radius-sm);padding:18px 20px;box-shadow:0 12px 34px -18px rgba(0,0,0,.6)}
+.stat .v{font-size:1.9rem;font-weight:800;letter-spacing:-.02em}
+.stat .l{font-size:.82rem;color:var(--muted);margin-top:2px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin:10px 0 18px;font-size:.82rem;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.bars-scroll{overflow-x:auto}
+.tt{
+  position:fixed;pointer-events:none;z-index:50;display:none;
+  background:rgba(13,16,23,.96);border-radius:10px;padding:9px 12px;font-size:.8rem;
+  box-shadow:0 10px 30px -8px rgba(0,0,0,.8), inset 0 0 0 1px rgba(255,255,255,.08);
+  max-width:280px;color:var(--ink-2)
+}
+.tt b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th,td{text-align:right;padding:9px 10px;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;user-select:none;position:sticky;top:0;background:var(--surface)}
+th .arrow{opacity:.6}
+tbody tr{border-top:1px solid rgba(255,255,255,.05)}
+tbody tr:hover{background:rgba(255,255,255,.03)}
+td.num{font-variant-numeric:tabular-nums}
+.cat-chip{display:inline-flex;align-items:center;gap:6px}
+.cat-chip i{width:9px;height:9px;border-radius:2.5px;flex:none}
+.table-scroll{overflow:auto;max-height:560px;border-radius:var(--radius-sm)}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(460px,100%),1fr));gap:18px}
+.coll-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.coll-head h3{font-size:1.12rem;font-weight:750;display:flex;align-items:center;gap:9px}
+.coll-head h3 i{width:12px;height:12px;border-radius:4px;display:inline-block}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chip small{font-weight:500;opacity:.75;margin-right:4px}
+.chip.up{background:rgba(12,163,12,.16);color:#4fd24f}
+.chip.down{background:rgba(208,59,59,.18);color:#ef8080}
+.chip.flat{background:rgba(255,255,255,.08);color:var(--ink-2)}
+.narr{font-size:.87rem;color:var(--ink-2);margin-top:12px;max-width:72ch}
+.src{font-size:.74rem;color:var(--muted);margin-top:8px}
+.src a{color:var(--muted)}
+.note{font-size:.8rem;color:var(--muted);margin-top:14px}
+footer{padding:40px 0 70px;color:var(--muted);font-size:.82rem}
+footer a{color:var(--ink-2)}
+.pill-toggle{display:inline-flex;background:var(--surface-2);border-radius:999px;padding:3px;margin-bottom:14px}
+.pill-toggle button{all:unset;cursor:pointer;padding:6px 16px;border-radius:999px;font-size:.82rem;color:var(--ink-2)}
+.pill-toggle button.on{background:linear-gradient(120deg,#2a5fd0,#5b4fd8);color:#fff;font-weight:650}
+@media (max-width:640px){ th,td{padding:8px 7px} }
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <div class="kicker">Courtyard.io Market Brief</div>
+  <h1>Pack odds, ranked.<br><span class="accent">Every collection, charted.</span></h1>
+  <p class="sub">Live odds pulled from Courtyard's own pack API for every in-stock pack, plus 12-month price action
+  for each collection they sell — graded Pokémon, sports cards, One Piece, graded coins, luxury watches and comics.</p>
+  <p class="stamp" id="stamp">Data pulled from api.courtyard.io</p>
+</header>
+
+<main class="wrap">
+
+<section id="odds">
+  <h2>1 · Which packs have the best odds?</h2>
+  <p class="lede">The headline finding: <b style="color:var(--ink)">Courtyard tunes every pack to a ~97% expected value</b> —
+  for each $100 spent, the average item pulled comps at ~$97. Since EV is flat across the board, "best odds" comes down to
+  <b style="color:var(--ink)">your chance of pulling an item worth at least what you paid</b> (the hit rate), and the jackpot ceiling you're chasing.</p>
+
+  <div class="statrow">
+    <div class="stat"><div class="v">97%</div><div class="l">Expected value on every pack — the house edge is a flat ~3%</div></div>
+    <div class="stat"><div class="v" id="statBest">—</div><div class="l" id="statBestL">Best hit rate</div></div>
+    <div class="stat"><div class="v" id="statWorst">—</div><div class="l" id="statWorstL">Worst hit rate</div></div>
+    <div class="stat"><div class="v" id="statCount">—</div><div class="l">In-stock packs analyzed (live odds)</div></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="coll-head"><h3>Hit rate by pack — chance the pull is worth ≥ pack price</h3></div>
+    <div class="pill-toggle" id="oddsToggle">
+      <button class="on" data-n="20">Top 20</button><button data-n="999">All packs</button>
+    </div>
+    <div class="legend" id="oddsLegend"></div>
+    <div class="bars-scroll"><div id="oddsChart"></div></div>
+    <p class="note">Hit rate = summed odds of all value tiers at or above pack price, from Courtyard's published per-pack odds buckets.
+    Odds are re-computed by Courtyard in real time; snapshot above is from the pull date in the header.</p>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="coll-head"><h3>Full odds table — all in-stock packs</h3></div>
+    <div class="table-scroll"><table id="oddsTable"></table></div>
+    <p class="note">EV = Courtyard's expectedValueUsd. Buyback = instant-sell ratio Courtyard offers on pulled items.
+    Jackpot = top odds bucket (max item value and chance of landing in that bucket). 13 additional packs are listed but sold out — Courtyard hides odds while out of stock.</p>
+  </div>
+</section>
+
+<section id="collections">
+  <h2>2 · How each collection moved over the last year</h2>
+  <p class="lede">Each chart tracks a market index for that collection, rebased to 100 in July 2025. Chips show the change
+  over the last 3, 6 and 12 months. These are category-level market indices from the sources cited on each card — not Courtyard-specific prices.</p>
+  <div class="grid-2" id="collGrid"></div>
+  <p class="note" id="collNote"></p>
+</section>
+
+</main>
+
+<div class="tt" id="tt"></div>
+
+<footer class="wrap">
+  <p><b>Methodology.</b> Pack odds: pulled from Courtyard's public pack API (api.courtyard.io/vending-machines) — the same
+  data behind the "Odds" dropdown on each pack page. Hit rate is the summed probability of odds buckets whose minimum value ≥ pack price.
+  Collection price action: publicly reported market indices and sales data as cited per card; where a source publishes only
+  period returns, the monthly path between anchor points is interpolated (marked "est." on the card).</p>
+  <p style="margin-top:10px">Not financial advice. Collectibles are volatile and illiquid; Courtyard odds change in real time.
+  Built <span id="footDate"></span>.</p>
+</footer>
+
+<script>
+const ODDS = [{"id":"1500-coin-pack","title":"$1500 Coin Pack","category":"coins","categoryTitle":"Graded Coins","tier":"Diamond","price":1500,"ev":1455,"evRatio":0.97,"pProfit":20.1,"jackpotMax":24000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":1105,"max":1305,"pct":77.9,"tier":"base"},{"min":1305,"max":1500,"pct":2,"tier":"common"},{"min":1500,"max":3000,"pct":17,"tier":"uncommon"},{"min":3000,"max":6000,"pct":3,"tier":"rare"},{"min":6000,"max":24000,"pct":0.1,"tier":"chase"}]},{"id":"150-coin-pack","title":"$150 Coin Pack","category":"coins","categoryTitle":"Graded Coins","tier":"Master","price":150,"ev":145.5,"evRatio":0.97,"pProfit":27.3,"jackpotMax":2400,"jackpotOdds":0.3,"buyback":0.846,"buckets":[{"min":105.15,"max":130,"pct":70.7,"tier":"base"},{"min":130,"max":150,"pct":2,"tier":"common"},{"min":150,"max":300,"pct":23,"tier":"uncommon"},{"min":300,"max":600,"pct":4,"tier":"rare"},{"min":600,"max":2400,"pct":0.3,"tier":"chase"}]},{"id":"500-coin-pack","title":"$500 Coin Pack","category":"coins","categoryTitle":"Graded Coins","tier":"Platinum","price":500,"ev":485,"evRatio":0.97,"pProfit":18.1,"jackpotMax":8000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":357.5,"max":430,"pct":71.9,"tier":"base"},{"min":430,"max":500,"pct":10,"tier":"common"},{"min":500,"max":1000,"pct":15,"tier":"uncommon"},{"min":1000,"max":2000,"pct":3,"tier":"rare"},{"min":2000,"max":8000,"pct":0.1,"tier":"chase"}]},{"id":"baseball-diamond-pack","title":"Baseball Diamond Pack","category":"baseball","categoryTitle":"Baseball","tier":"Diamond","price":1000,"ev":970,"evRatio":0.97,"pProfit":23.2,"jackpotMax":16000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":700,"max":850,"pct":52.8,"tier":"base"},{"min":850,"max":1000,"pct":24,"tier":"common"},{"min":1000,"max":2000,"pct":20,"tier":"uncommon"},{"min":2000,"max":4000,"pct":3,"tier":"rare"},{"min":4000,"max":16000,"pct":0.2,"tier":"chase"}]},{"id":"baseball-legend-pack","title":"Baseball Legend Pack","category":"baseball","categoryTitle":"Baseball","tier":"Legend","price":2500,"ev":2425,"evRatio":0.97,"pProfit":23.1,"jackpotMax":40000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":1763.3,"max":2130,"pct":45.9,"tier":"base"},{"min":2130,"max":2500,"pct":31,"tier":"common"},{"min":2500,"max":5000,"pct":20,"tier":"uncommon"},{"min":5000,"max":10000,"pct":3,"tier":"rare"},{"min":10000,"max":40000,"pct":0.1,"tier":"chase"}]},{"id":"baseball-master-pack","title":"Baseball Master Pack","category":"baseball","categoryTitle":"Baseball","tier":"Master","price":100,"ev":97,"evRatio":0.97,"pProfit":23.1,"jackpotMax":1600,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":70,"max":85,"pct":49.9,"tier":"base"},{"min":85,"max":100,"pct":27,"tier":"common"},{"min":100,"max":200,"pct":20,"tier":"uncommon"},{"min":200,"max":400,"pct":3,"tier":"rare"},{"min":400,"max":1600,"pct":0.1,"tier":"chase"}]},{"id":"baseball-platinum-pack","title":"Baseball Platinum Pack","category":"baseball","categoryTitle":"Baseball","tier":"Platinum","price":500,"ev":485,"evRatio":0.97,"pProfit":24.2,"jackpotMax":8000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":356,"max":430,"pct":56.8,"tier":"base"},{"min":430,"max":500,"pct":19,"tier":"common"},{"min":500,"max":1000,"pct":21,"tier":"uncommon"},{"min":1000,"max":2000,"pct":3,"tier":"rare"},{"min":2000,"max":8000,"pct":0.2,"tier":"chase"}]},{"id":"baseball-pro-pack","title":"Baseball Pro Pack","category":"baseball","categoryTitle":"Baseball","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":24.2,"jackpotMax":400,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":35,"max":45,"pct":60.8,"tier":"base"},{"min":45,"max":50,"pct":15,"tier":"common"},{"min":50,"max":100,"pct":21,"tier":"uncommon"},{"min":100,"max":200,"pct":3,"tier":"rare"},{"min":200,"max":400,"pct":0.2,"tier":"chase"}]},{"id":"baseball-ultra-pack","title":"Baseball Ultra Pack","category":"baseball","categoryTitle":"Baseball","tier":"Master","price":250,"ev":242.5,"evRatio":0.97,"pProfit":23.2,"jackpotMax":4000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":175,"max":215,"pct":51.8,"tier":"base"},{"min":215,"max":250,"pct":25,"tier":"common"},{"min":250,"max":500,"pct":20,"tier":"uncommon"},{"min":500,"max":1000,"pct":3,"tier":"rare"},{"min":1000,"max":4000,"pct":0.2,"tier":"chase"}]},{"id":"basketball-diamond-pack","title":"Basketball Diamond Pack","category":"basketball","categoryTitle":"Basketball","tier":"Diamond","price":1000,"ev":970,"evRatio":0.97,"pProfit":22.2,"jackpotMax":16000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":700,"max":850,"pct":52.8,"tier":"base"},{"min":850,"max":1000,"pct":25,"tier":"common"},{"min":1000,"max":2000,"pct":20,"tier":"uncommon"},{"min":2000,"max":4000,"pct":2,"tier":"rare"},{"min":4000,"max":16000,"pct":0.2,"tier":"chase"}]},{"id":"basketball-legend-pack","title":"Basketball Legend Pack","category":"basketball","categoryTitle":"Basketball","tier":"Legend","price":2500,"ev":2425,"evRatio":0.97,"pProfit":21.1,"jackpotMax":40000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":1758.5,"max":2130,"pct":53.9,"tier":"base"},{"min":2130,"max":2500,"pct":25,"tier":"common"},{"min":2500,"max":5000,"pct":19,"tier":"uncommon"},{"min":5000,"max":10000,"pct":2,"tier":"rare"},{"min":10000,"max":40000,"pct":0.1,"tier":"chase"}]},{"id":"basketball-master-pack","title":"Basketball Master Pack","category":"basketball","categoryTitle":"Basketball","tier":"Master","price":100,"ev":97,"evRatio":0.97,"pProfit":21.1,"jackpotMax":1600,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":70,"max":85,"pct":39,"tier":"base"},{"min":85,"max":100,"pct":39.9,"tier":"common"},{"min":100,"max":200,"pct":19,"tier":"uncommon"},{"min":200,"max":400,"pct":2,"tier":"rare"},{"min":400,"max":1600,"pct":0.1,"tier":"chase"}]},{"id":"basketball-mythic-pack","title":"Basketball Mythic Pack","category":"basketball","categoryTitle":"Basketball","tier":"Mythic","price":5000,"ev":4850,"evRatio":0.97,"pProfit":23.1,"jackpotMax":80000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":3504.1,"max":4250,"pct":52.9,"tier":"base"},{"min":4250,"max":5000,"pct":24,"tier":"common"},{"min":5000,"max":10000,"pct":20,"tier":"uncommon"},{"min":10000,"max":20000,"pct":3,"tier":"rare"},{"min":20000,"max":80000,"pct":0.1,"tier":"chase"}]},{"id":"basketball-platinum-pack","title":"Basketball Platinum Pack","category":"basketball","categoryTitle":"Basketball","tier":"Platinum","price":500,"ev":485,"evRatio":0.97,"pProfit":23.2,"jackpotMax":8000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":350,"max":425,"pct":52.8,"tier":"base"},{"min":425,"max":500,"pct":24,"tier":"common"},{"min":500,"max":1000,"pct":20,"tier":"uncommon"},{"min":1000,"max":2000,"pct":3,"tier":"rare"},{"min":2000,"max":8000,"pct":0.2,"tier":"chase"}]},{"id":"basketball-pro-pack","title":"Basketball Pro Pack","category":"basketball","categoryTitle":"Basketball","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":24.2,"jackpotMax":800,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":35,"max":45,"pct":65.8,"tier":"base"},{"min":45,"max":50,"pct":10,"tier":"common"},{"min":50,"max":100,"pct":21,"tier":"uncommon"},{"min":100,"max":200,"pct":3,"tier":"rare"},{"min":200,"max":800,"pct":0.2,"tier":"chase"}]},{"id":"basketball-ultra-pack","title":"Basketball Ultra Pack","category":"basketball","categoryTitle":"Basketball","tier":"Master","price":250,"ev":242.5,"evRatio":0.97,"pProfit":24.2,"jackpotMax":4000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":175,"max":215,"pct":51.8,"tier":"base"},{"min":215,"max":250,"pct":24,"tier":"common"},{"min":250,"max":500,"pct":21,"tier":"uncommon"},{"min":500,"max":1000,"pct":3,"tier":"rare"},{"min":1000,"max":4000,"pct":0.2,"tier":"chase"}]},{"id":"bronze-age-pack","title":"Bronze Age Pack","category":"comics","categoryTitle":"Comics","tier":"Bronze","price":200,"ev":194,"evRatio":0.97,"pProfit":27.4,"jackpotMax":3200,"jackpotOdds":0.4,"buyback":0.846,"buckets":[{"min":120,"max":160,"pct":46.6,"tier":"base"},{"min":160,"max":200,"pct":26,"tier":"common"},{"min":200,"max":400,"pct":23,"tier":"uncommon"},{"min":400,"max":800,"pct":4,"tier":"rare"},{"min":800,"max":3200,"pct":0.4,"tier":"chase"}]},{"id":"classic-watch-box","title":"Classic Watch Box","category":"watches","categoryTitle":"Watches","tier":"Mythic","price":5000,"ev":4850,"evRatio":0.97,"pProfit":18,"jackpotMax":30000,"jackpotOdds":1,"buyback":0.846,"buckets":[{"min":3517.5,"max":4260,"pct":47,"tier":"base"},{"min":4260,"max":5000,"pct":35,"tier":"common"},{"min":5000,"max":10000,"pct":17,"tier":"uncommon"},{"min":10000,"max":30000,"pct":1,"tier":"rare"}]},{"id":"comic-diamond-pack","title":"Comic Diamond Pack ","category":"comics","categoryTitle":"Comics","tier":"Diamond","price":1000,"ev":970,"evRatio":0.97,"pProfit":23.1,"jackpotMax":16000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":700,"max":850,"pct":51.9,"tier":"base"},{"min":850,"max":1000,"pct":25,"tier":"common"},{"min":1000,"max":2000,"pct":20,"tier":"uncommon"},{"min":2000,"max":4000,"pct":3,"tier":"rare"},{"min":4000,"max":16000,"pct":0.1,"tier":"chase"}]},{"id":"comic-pro-pack","title":"Comic Pro Pack","category":"comics","categoryTitle":"Comics","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":25.4,"jackpotMax":800,"jackpotOdds":0.4,"buyback":0.846,"buckets":[{"min":30,"max":40,"pct":54.6,"tier":"base"},{"min":40,"max":50,"pct":20,"tier":"common"},{"min":50,"max":100,"pct":21,"tier":"uncommon"},{"min":100,"max":200,"pct":4,"tier":"rare"},{"min":200,"max":800,"pct":0.4,"tier":"chase"}]},{"id":"football-diamond-pack","title":"Football Diamond Pack","category":"football","categoryTitle":"Football","tier":"Diamond","price":1000,"ev":970,"evRatio":0.97,"pProfit":22.2,"jackpotMax":16000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":710,"max":855,"pct":52.8,"tier":"base"},{"min":855,"max":1000,"pct":25,"tier":"common"},{"min":1000,"max":2000,"pct":19,"tier":"uncommon"},{"min":2000,"max":4000,"pct":3,"tier":"rare"},{"min":4000,"max":16000,"pct":0.2,"tier":"chase"}]},{"id":"football-legend-pack","title":"Football Legend Pack","category":"football","categoryTitle":"Football","tier":"Legend","price":2500,"ev":2425,"evRatio":0.97,"pProfit":21.1,"jackpotMax":40000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":1752,"max":2125,"pct":51.9,"tier":"base"},{"min":2125,"max":2500,"pct":27,"tier":"common"},{"min":2500,"max":5000,"pct":19,"tier":"uncommon"},{"min":5000,"max":10000,"pct":2,"tier":"rare"},{"min":10000,"max":40000,"pct":0.1,"tier":"chase"}]},{"id":"football-master-pack","title":"Football Master Pack","category":"football","categoryTitle":"Football","tier":"Master","price":100,"ev":97,"evRatio":0.97,"pProfit":23.1,"jackpotMax":1600,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":70,"max":85,"pct":47.9,"tier":"base"},{"min":85,"max":100,"pct":29,"tier":"common"},{"min":100,"max":200,"pct":20,"tier":"uncommon"},{"min":200,"max":400,"pct":3,"tier":"rare"},{"min":400,"max":1600,"pct":0.1,"tier":"chase"}]},{"id":"football-platinum-pack","title":"Football Platinum Pack","category":"football","categoryTitle":"Football","tier":"Platinum","price":500,"ev":485,"evRatio":0.97,"pProfit":24.2,"jackpotMax":8000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":350,"max":425,"pct":49.8,"tier":"base"},{"min":425,"max":500,"pct":26,"tier":"common"},{"min":500,"max":1000,"pct":21,"tier":"uncommon"},{"min":1000,"max":2000,"pct":3,"tier":"rare"},{"min":2000,"max":8000,"pct":0.2,"tier":"chase"}]},{"id":"football-pro-pack","title":"Football Pro Pack","category":"football","categoryTitle":"Football","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":24.2,"jackpotMax":800,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":35,"max":45,"pct":59.8,"tier":"base"},{"min":45,"max":50,"pct":16,"tier":"common"},{"min":50,"max":100,"pct":21,"tier":"uncommon"},{"min":100,"max":200,"pct":3,"tier":"rare"},{"min":200,"max":800,"pct":0.2,"tier":"chase"}]},{"id":"football-ultra-pack","title":"Football Ultra Pack","category":"football","categoryTitle":"Football","tier":"Master","price":250,"ev":242.5,"evRatio":0.97,"pProfit":23.2,"jackpotMax":4000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":175,"max":215,"pct":60.8,"tier":"base"},{"min":215,"max":250,"pct":16,"tier":"common"},{"min":250,"max":500,"pct":20,"tier":"uncommon"},{"min":500,"max":1000,"pct":3,"tier":"rare"},{"min":1000,"max":4000,"pct":0.2,"tier":"chase"}]},{"id":"hockey-master-pack","title":"Hockey Master Pack","category":"hockey","categoryTitle":"Hockey","tier":"Master","price":100,"ev":97,"evRatio":0.97,"pProfit":22.1,"jackpotMax":1600,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":70.5,"max":85,"pct":48.9,"tier":"base"},{"min":85,"max":100,"pct":29,"tier":"common"},{"min":100,"max":200,"pct":20,"tier":"uncommon"},{"min":200,"max":400,"pct":2,"tier":"rare"},{"min":400,"max":1600,"pct":0.1,"tier":"chase"}]},{"id":"hockey-pro-pack","title":"Hockey Pro Pack","category":"hockey","categoryTitle":"Hockey","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":23.1,"jackpotMax":800,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":35,"max":45,"pct":53.9,"tier":"base"},{"min":45,"max":50,"pct":23,"tier":"common"},{"min":50,"max":100,"pct":20,"tier":"uncommon"},{"min":100,"max":200,"pct":3,"tier":"rare"},{"min":200,"max":800,"pct":0.1,"tier":"chase"}]},{"id":"hockey-starter-pack","title":"Hockey Starter Pack","category":"hockey","categoryTitle":"Hockey","tier":"Starter","price":25,"ev":24.25,"evRatio":0.97,"pProfit":24.2,"jackpotMax":399.99,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":17.7,"max":21,"pct":52.8,"tier":"base"},{"min":21,"max":25,"pct":23,"tier":"common"},{"min":25,"max":50,"pct":21,"tier":"uncommon"},{"min":50,"max":100,"pct":3,"tier":"rare"},{"min":100,"max":399.99,"pct":0.2,"tier":"chase"}]},{"id":"hockey-ultra-pack","title":"Hockey Ultra Pack","category":"hockey","categoryTitle":"Hockey","tier":"Master","price":250,"ev":242.5,"evRatio":0.97,"pProfit":23.2,"jackpotMax":4000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":180,"max":215,"pct":49.8,"tier":"base"},{"min":215,"max":250,"pct":27,"tier":"common"},{"min":250,"max":500,"pct":21,"tier":"uncommon"},{"min":500,"max":1000,"pct":2,"tier":"rare"},{"min":1000,"max":4000,"pct":0.2,"tier":"chase"}]},{"id":"modern-age-pack","title":"Modern Age Pack","category":"comics","categoryTitle":"Comics","tier":"Modern","price":100,"ev":97,"evRatio":0.97,"pProfit":21.1,"jackpotMax":1600,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":70,"max":85,"pct":42.9,"tier":"base"},{"min":85,"max":100,"pct":36,"tier":"common"},{"min":100,"max":200,"pct":19,"tier":"uncommon"},{"min":200,"max":400,"pct":2,"tier":"rare"},{"min":400,"max":1600,"pct":0.1,"tier":"chase"}]},{"id":"onepiece-diamond-pack","title":"One Piece Diamond Pack","category":"onepiece","categoryTitle":"One Piece","tier":"Diamond","price":1000,"ev":970,"evRatio":0.97,"pProfit":25.3,"jackpotMax":24000,"jackpotOdds":0.3,"buyback":0.846,"buckets":[{"min":602,"max":800,"pct":45.7,"tier":"base"},{"min":800,"max":1000,"pct":29,"tier":"common"},{"min":1000,"max":2000,"pct":21,"tier":"uncommon"},{"min":2000,"max":4000,"pct":4,"tier":"rare"},{"min":4000,"max":24000,"pct":0.3,"tier":"chase"}]},{"id":"onepiece-master-pack","title":"One Piece Master Pack","category":"onepiece","categoryTitle":"One Piece","tier":"Master","price":100,"ev":97,"evRatio":0.97,"pProfit":21.2,"jackpotMax":1600,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":70,"max":85,"pct":51.8,"tier":"base"},{"min":85,"max":100,"pct":27,"tier":"common"},{"min":100,"max":200,"pct":19,"tier":"uncommon"},{"min":200,"max":400,"pct":2,"tier":"rare"},{"min":400,"max":1600,"pct":0.2,"tier":"chase"}]},{"id":"onepiece-platinum-pack","title":"One Piece Platinum Pack","category":"onepiece","categoryTitle":"One Piece","tier":"Platinum","price":500,"ev":485,"evRatio":0.97,"pProfit":22.1,"jackpotMax":8000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":350,"max":425,"pct":48.9,"tier":"base"},{"min":425,"max":500,"pct":29,"tier":"common"},{"min":500,"max":1000,"pct":19,"tier":"uncommon"},{"min":1000,"max":2000,"pct":3,"tier":"rare"},{"min":2000,"max":8000,"pct":0.1,"tier":"chase"}]},{"id":"onepiece-pro-pack","title":"One Piece Pro Pack","category":"onepiece","categoryTitle":"One Piece","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":23.1,"jackpotMax":800,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":35,"max":45,"pct":53.9,"tier":"base"},{"min":45,"max":50,"pct":23,"tier":"common"},{"min":50,"max":100,"pct":20,"tier":"uncommon"},{"min":100,"max":200,"pct":3,"tier":"rare"},{"min":200,"max":800,"pct":0.1,"tier":"chase"}]},{"id":"onepiece-ultra-pack","title":"One Piece Ultra Pack","category":"onepiece","categoryTitle":"One Piece","tier":"Master","price":250,"ev":242.5,"evRatio":0.97,"pProfit":24.2,"jackpotMax":4000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":176,"max":215,"pct":56.8,"tier":"base"},{"min":215,"max":250,"pct":19,"tier":"common"},{"min":250,"max":500,"pct":21,"tier":"uncommon"},{"min":500,"max":1000,"pct":3,"tier":"rare"},{"min":1000,"max":4000,"pct":0.2,"tier":"chase"}]},{"id":"pkmn-diamond-pack","title":"Pok\u00e9mon Diamond Pack","category":"pkmn","categoryTitle":"Pok\u00e9mon","tier":"Diamond","price":1000,"ev":970,"evRatio":0.97,"pProfit":20.2,"jackpotMax":16000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":700.2,"max":850,"pct":51.8,"tier":"base"},{"min":850,"max":1000,"pct":28,"tier":"common"},{"min":1000,"max":2000,"pct":17,"tier":"uncommon"},{"min":2000,"max":4000,"pct":3,"tier":"rare"},{"min":4000,"max":16000,"pct":0.2,"tier":"chase"}]},{"id":"pkmn-legend-pack","title":"Pok\u00e9mon Legend Pack","category":"pkmn","categoryTitle":"Pok\u00e9mon","tier":"Legend","price":2500,"ev":2425,"evRatio":0.97,"pProfit":22.1,"jackpotMax":40000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":1751.3,"max":2125,"pct":38,"tier":"base"},{"min":2125,"max":2500,"pct":39.9,"tier":"common"},{"min":2500,"max":5000,"pct":20,"tier":"uncommon"},{"min":5000,"max":10000,"pct":2,"tier":"rare"},{"min":10000,"max":40000,"pct":0.1,"tier":"chase"}]},{"id":"pkmn-master-pack","title":"Pok\u00e9mon Master Pack","category":"pkmn","categoryTitle":"Pok\u00e9mon","tier":"Master","price":100,"ev":97,"evRatio":0.97,"pProfit":22.1,"jackpotMax":1600,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":70,"max":85,"pct":45.9,"tier":"base"},{"min":85,"max":100,"pct":32,"tier":"common"},{"min":100,"max":200,"pct":20,"tier":"uncommon"},{"min":200,"max":400,"pct":2,"tier":"rare"},{"min":400,"max":1600,"pct":0.1,"tier":"chase"}]},{"id":"pkmn-mythic-pack","title":"Pok\u00e9mon Mythic Pack","category":"pkmn","categoryTitle":"Pok\u00e9mon","tier":"Mythic","price":5000,"ev":4850,"evRatio":0.97,"pProfit":23.2,"jackpotMax":80000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":3507,"max":4255,"pct":59.8,"tier":"base"},{"min":4255,"max":5000,"pct":17,"tier":"common"},{"min":5000,"max":10000,"pct":20,"tier":"uncommon"},{"min":10000,"max":20000,"pct":3,"tier":"rare"},{"min":20000,"max":80000,"pct":0.2,"tier":"chase"}]},{"id":"pkmn-platinum-pack","title":"Pok\u00e9mon Platinum Pack","category":"pkmn","categoryTitle":"Pok\u00e9mon","tier":"Platinum","price":500,"ev":485,"evRatio":0.97,"pProfit":22.1,"jackpotMax":8000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":350,"max":425,"pct":55.9,"tier":"base"},{"min":425,"max":500,"pct":22,"tier":"common"},{"min":500,"max":1000,"pct":20,"tier":"uncommon"},{"min":1000,"max":2000,"pct":2,"tier":"rare"},{"min":2000,"max":8000,"pct":0.1,"tier":"chase"}]},{"id":"pkmn-platinum-pack-spicy","title":"Pok\u00e9mon Platinum (Spicy)","category":"limited_drop","categoryTitle":"Limited Drop","tier":"Platinum","price":499,"ev":484.03,"evRatio":0.97,"pProfit":27.6,"jackpotMax":15968,"jackpotOdds":0.6,"buyback":0.846,"buckets":[{"min":251,"max":375,"pct":52.4,"tier":"base"},{"min":375,"max":499,"pct":20,"tier":"common"},{"min":499,"max":998,"pct":23,"tier":"uncommon"},{"min":998,"max":1996,"pct":4,"tier":"rare"},{"min":1996,"max":15968,"pct":0.6,"tier":"chase"}]},{"id":"pkmn-pro-pack","title":"Pok\u00e9mon Pro Pack","category":"pkmn","categoryTitle":"Pok\u00e9mon","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":23.1,"jackpotMax":800,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":35,"max":45,"pct":56.9,"tier":"base"},{"min":45,"max":50,"pct":20,"tier":"common"},{"min":50,"max":100,"pct":20,"tier":"uncommon"},{"min":100,"max":200,"pct":3,"tier":"rare"},{"min":200,"max":800,"pct":0.1,"tier":"chase"}]},{"id":"pkmn-starter-pack","title":"Pok\u00e9mon Starter Pack","category":"pkmn","categoryTitle":"Pok\u00e9mon","tier":"Starter","price":25,"ev":24.25,"evRatio":0.97,"pProfit":23.2,"jackpotMax":400,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":17.5,"max":21,"pct":40.8,"tier":"base"},{"min":21,"max":25,"pct":36,"tier":"common"},{"min":25,"max":50,"pct":20,"tier":"uncommon"},{"min":50,"max":100,"pct":3,"tier":"rare"},{"min":100,"max":400,"pct":0.2,"tier":"chase"}]},{"id":"pkmn-ultra-pack","title":"Pok\u00e9mon Ultra Pack","category":"pkmn","categoryTitle":"Pok\u00e9mon","tier":"Master","price":250,"ev":242.5,"evRatio":0.97,"pProfit":23.1,"jackpotMax":4000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":175,"max":215,"pct":52.9,"tier":"base"},{"min":215,"max":250,"pct":24,"tier":"common"},{"min":250,"max":500,"pct":20,"tier":"uncommon"},{"min":500,"max":1000,"pct":3,"tier":"rare"},{"min":1000,"max":4000,"pct":0.1,"tier":"chase"}]},{"id":"pkmn-ultra-pack-spicy","title":"Pok\u00e9mon Ultra (Spicy)","category":"limited_drop","categoryTitle":"Limited Drop","tier":"Master","price":249,"ev":241.53,"evRatio":0.97,"pProfit":27.7,"jackpotMax":7968,"jackpotOdds":0.7,"buyback":0.846,"buckets":[{"min":125,"max":185,"pct":51.3,"tier":"base"},{"min":185,"max":249,"pct":21,"tier":"common"},{"min":249,"max":498,"pct":22,"tier":"uncommon"},{"min":498,"max":996,"pct":5,"tier":"rare"},{"min":996,"max":7968,"pct":0.7,"tier":"chase"}]},{"id":"premier-watch-box","title":"Premier Watch Box","category":"watches","categoryTitle":"Watches","tier":"Mythic","price":10000,"ev":9700,"evRatio":0.97,"pProfit":15,"jackpotMax":100000,"jackpotOdds":1,"buyback":0.95,"buckets":[{"min":8000,"max":9000,"pct":41,"tier":"base"},{"min":9000,"max":10000,"pct":44,"tier":"common"},{"min":10000,"max":20000,"pct":14,"tier":"uncommon"},{"min":20000,"max":100000,"pct":1,"tier":"rare"}]},{"id":"rolex-watch-box","title":"Rolex Watch Box","category":"watches","categoryTitle":"Watches","tier":"Mythic","price":12000,"ev":11640,"evRatio":0.97,"pProfit":24.1,"jackpotMax":94000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":9030,"max":10515,"pct":72.9,"tier":"base"},{"min":10515,"max":12000,"pct":3,"tier":"common"},{"min":12000,"max":24000,"pct":20,"tier":"uncommon"},{"min":24000,"max":48000,"pct":4,"tier":"rare"},{"min":48000,"max":94000,"pct":0.1,"tier":"chase"}]},{"id":"mtg-sealed-booster-3","title":"Sealed Magic: The Gathering Booster","category":"magic_the_gathering","categoryTitle":"Magic The Gathering","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":24.2,"jackpotMax":800,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":31.6,"max":40,"pct":38.8,"tier":"base"},{"min":40,"max":50,"pct":37,"tier":"common"},{"min":50,"max":100,"pct":22,"tier":"uncommon"},{"min":100,"max":200,"pct":2,"tier":"rare"},{"min":200,"max":800,"pct":0.2,"tier":"chase"}]},{"id":"mtg-sealed-booster-2","title":"Sealed Magic: The Gathering Booster","category":"magic_the_gathering","categoryTitle":"Magic The Gathering","tier":"Starter","price":25,"ev":24.25,"evRatio":0.97,"pProfit":28.4,"jackpotMax":400,"jackpotOdds":0.4,"buyback":0.846,"buckets":[{"min":15.6,"max":20,"pct":67.6,"tier":"base"},{"min":20,"max":25,"pct":4,"tier":"common"},{"min":25,"max":50,"pct":23,"tier":"uncommon"},{"min":50,"max":100,"pct":5,"tier":"rare"},{"min":100,"max":400,"pct":0.4,"tier":"chase"}]},{"id":"mtg-sealed-booster","title":"Sealed Magic: The Gathering Booster","category":"magic_the_gathering","categoryTitle":"Magic The Gathering","tier":"Starter","price":10,"ev":9.7,"evRatio":0.97,"pProfit":26.8,"jackpotMax":160,"jackpotOdds":0.8,"buyback":0.846,"buckets":[{"min":6,"max":8,"pct":71.2,"tier":"base"},{"min":8,"max":10,"pct":2,"tier":"common"},{"min":10,"max":20,"pct":21,"tier":"uncommon"},{"min":20,"max":40,"pct":5,"tier":"rare"},{"min":40,"max":160,"pct":0.8,"tier":"chase"}]},{"id":"pkmn-sealed-booster-3","title":"Sealed Pok\u00e9mon Booster","category":"booster","categoryTitle":"Sealed Booster","tier":"Sealed Booster","price":50,"ev":48.5,"evRatio":0.97,"pProfit":23.3,"jackpotMax":800,"jackpotOdds":0.3,"buyback":0.846,"buckets":[{"min":31.7,"max":40,"pct":54.7,"tier":"base"},{"min":40,"max":50,"pct":22,"tier":"common"},{"min":50,"max":100,"pct":19,"tier":"uncommon"},{"min":100,"max":200,"pct":4,"tier":"rare"},{"min":200,"max":800,"pct":0.3,"tier":"chase"}]},{"id":"sealed-pkmn-booster","title":"Sealed Pok\u00e9mon Booster","category":"booster","categoryTitle":"Sealed Booster","tier":"Sealed Booster","price":15,"ev":14.55,"evRatio":0.97,"pProfit":18,"jackpotMax":240,"jackpotOdds":1,"buyback":0.846,"buckets":[{"min":11.1,"max":13,"pct":29,"tier":"base"},{"min":13,"max":15,"pct":53,"tier":"common"},{"min":15,"max":30,"pct":17,"tier":"uncommon"},{"min":30,"max":240,"pct":1,"tier":"rare"}]},{"id":"pkmn-sealed-booster-2","title":"Sealed Pok\u00e9mon Booster","category":"booster","categoryTitle":"Sealed Booster","tier":"Sealed Booster","price":25,"ev":24.25,"evRatio":0.97,"pProfit":24.3,"jackpotMax":400,"jackpotOdds":0.3,"buyback":0.846,"buckets":[{"min":15,"max":20,"pct":48.7,"tier":"base"},{"min":20,"max":25,"pct":27,"tier":"common"},{"min":25,"max":50,"pct":21,"tier":"uncommon"},{"min":50,"max":100,"pct":3,"tier":"rare"},{"min":100,"max":400,"pct":0.3,"tier":"chase"}]},{"id":"silver-age-pack","title":"Silver Age Pack","category":"comics","categoryTitle":"Comics","tier":"Silver","price":500,"ev":485,"evRatio":0.97,"pProfit":24.3,"jackpotMax":8000,"jackpotOdds":0.3,"buyback":0.846,"buckets":[{"min":350,"max":425,"pct":57.7,"tier":"base"},{"min":425,"max":500,"pct":18,"tier":"common"},{"min":500,"max":1000,"pct":21,"tier":"uncommon"},{"min":1000,"max":2000,"pct":3,"tier":"rare"},{"min":2000,"max":8000,"pct":0.3,"tier":"chase"}]},{"id":"basketball-slam-pack","title":"SLAM Pack","category":"basketball","categoryTitle":"Basketball","tier":"Master","price":120,"ev":116.4,"evRatio":0.97,"pProfit":27.7,"jackpotMax":1405,"jackpotOdds":0.7,"buyback":0.846,"buckets":[{"min":60,"max":90,"pct":31,"tier":"base"},{"min":90,"max":120,"pct":41.3,"tier":"common"},{"min":120,"max":240,"pct":22,"tier":"uncommon"},{"min":240,"max":480,"pct":5,"tier":"rare"},{"min":480,"max":1405,"pct":0.7,"tier":"chase"}]},{"id":"soccer-master-pack","title":"Soccer Master Pack","category":"soccer","categoryTitle":"Soccer","tier":"Master","price":100,"ev":97,"evRatio":0.97,"pProfit":21.1,"jackpotMax":1600,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":70,"max":85,"pct":48.9,"tier":"base"},{"min":85,"max":100,"pct":30,"tier":"common"},{"min":100,"max":200,"pct":19,"tier":"uncommon"},{"min":200,"max":400,"pct":2,"tier":"rare"},{"min":400,"max":1600,"pct":0.1,"tier":"chase"}]},{"id":"soccer-platinum-pack","title":"Soccer Platinum Pack","category":"soccer","categoryTitle":"Soccer","tier":"Platinum","price":500,"ev":485,"evRatio":0.97,"pProfit":25.2,"jackpotMax":8000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":351,"max":425,"pct":51.8,"tier":"base"},{"min":425,"max":500,"pct":23,"tier":"common"},{"min":500,"max":1000,"pct":21,"tier":"uncommon"},{"min":1000,"max":2000,"pct":4,"tier":"rare"},{"min":2000,"max":8000,"pct":0.2,"tier":"chase"}]},{"id":"soccer-pro-pack","title":"Soccer Pro Pack","category":"soccer","categoryTitle":"Soccer","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":23.1,"jackpotMax":800,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":35,"max":45,"pct":56.9,"tier":"base"},{"min":45,"max":50,"pct":20,"tier":"common"},{"min":50,"max":100,"pct":20,"tier":"uncommon"},{"min":100,"max":200,"pct":3,"tier":"rare"},{"min":200,"max":800,"pct":0.1,"tier":"chase"}]},{"id":"sports-diamond-pack","title":"Sports Diamond Pack","category":"sports","categoryTitle":"Sports","tier":"Diamond","price":1000,"ev":970,"evRatio":0.97,"pProfit":21.2,"jackpotMax":16000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":700,"max":850,"pct":53.8,"tier":"base"},{"min":850,"max":1000,"pct":25,"tier":"common"},{"min":1000,"max":2000,"pct":19,"tier":"uncommon"},{"min":2000,"max":4000,"pct":2,"tier":"rare"},{"min":4000,"max":16000,"pct":0.2,"tier":"chase"}]},{"id":"sports-legend-pack","title":"Sports Legend Pack","category":"sports","categoryTitle":"Sports","tier":"Legend","price":2500,"ev":2425,"evRatio":0.97,"pProfit":22.1,"jackpotMax":40000,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":1752,"max":2125,"pct":49.9,"tier":"base"},{"min":2125,"max":2500,"pct":28,"tier":"common"},{"min":2500,"max":5000,"pct":19,"tier":"uncommon"},{"min":5000,"max":10000,"pct":3,"tier":"rare"},{"min":10000,"max":40000,"pct":0.1,"tier":"chase"}]},{"id":"sports-master-pack","title":"Sports Master Pack","category":"sports","categoryTitle":"Sports","tier":"Master","price":100,"ev":97,"evRatio":0.97,"pProfit":22.1,"jackpotMax":1600,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":70,"max":85,"pct":49.9,"tier":"base"},{"min":85,"max":100,"pct":28,"tier":"common"},{"min":100,"max":200,"pct":20,"tier":"uncommon"},{"min":200,"max":400,"pct":2,"tier":"rare"},{"min":400,"max":1600,"pct":0.1,"tier":"chase"}]},{"id":"sports-platinum-pack","title":"Sports Platinum Pack","category":"sports","categoryTitle":"Sports","tier":"Platinum","price":500,"ev":485,"evRatio":0.97,"pProfit":24.2,"jackpotMax":8000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":350,"max":425,"pct":51.8,"tier":"base"},{"min":425,"max":500,"pct":24,"tier":"common"},{"min":500,"max":1000,"pct":21,"tier":"uncommon"},{"min":1000,"max":2000,"pct":3,"tier":"rare"},{"min":2000,"max":8000,"pct":0.2,"tier":"chase"}]},{"id":"sports-pro-pack","title":"Sports Pro Pack","category":"sports","categoryTitle":"Sports","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":24.2,"jackpotMax":800,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":35,"max":45,"pct":58.8,"tier":"base"},{"min":45,"max":50,"pct":17,"tier":"common"},{"min":50,"max":100,"pct":21,"tier":"uncommon"},{"min":100,"max":200,"pct":3,"tier":"rare"},{"min":200,"max":800,"pct":0.2,"tier":"chase"}]},{"id":"sports-starter-pack","title":"Sports Starter Pack","category":"sports","categoryTitle":"Sports","tier":"Starter","price":25,"ev":24.25,"evRatio":0.97,"pProfit":30.0,"jackpotMax":400,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":10.3,"max":18,"pct":47,"tier":"base"},{"min":18,"max":25,"pct":23,"tier":"common"},{"min":25,"max":50,"pct":23,"tier":"uncommon"},{"min":50,"max":100,"pct":6,"tier":"rare"},{"min":100,"max":200,"pct":0.9,"tier":"chase"},{"min":200,"max":400,"pct":0.1,"tier":"epic"}]},{"id":"sports-ultra-pack","title":"Sports Ultra Pack","category":"sports","categoryTitle":"Sports","tier":"Master","price":250,"ev":242.5,"evRatio":0.97,"pProfit":24.2,"jackpotMax":4000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":175,"max":215,"pct":53.8,"tier":"base"},{"min":215,"max":250,"pct":22,"tier":"common"},{"min":250,"max":500,"pct":21,"tier":"uncommon"},{"min":500,"max":1000,"pct":3,"tier":"rare"},{"min":1000,"max":4000,"pct":0.2,"tier":"chase"}]},{"id":"onepiece-pull-party-2","title":"Summer Pull Party (Spicy)","category":"limited_drop","categoryTitle":"Limited Drop","tier":"Master","price":199,"ev":193.03,"evRatio":0.97,"pProfit":24.3,"jackpotMax":6368,"jackpotOdds":0.3,"buyback":0.846,"buckets":[{"min":120,"max":160,"pct":50.7,"tier":"base"},{"min":160,"max":199,"pct":25,"tier":"common"},{"min":199,"max":398,"pct":20,"tier":"uncommon"},{"min":398,"max":796,"pct":4,"tier":"rare"},{"min":796,"max":6368,"pct":0.3,"tier":"chase"}]},{"id":"pkmn-eras-collection-ascension","title":"The Eras Collection: Ascension","category":"limited_drop","categoryTitle":"Limited Drop","tier":"Pro","price":69,"ev":66.93,"evRatio":0.97,"pProfit":22.3,"jackpotMax":1208.5,"jackpotOdds":0.3,"buyback":0.846,"buckets":[{"min":43,"max":55,"pct":38,"tier":"base"},{"min":55,"max":69,"pct":39.7,"tier":"common"},{"min":69,"max":138,"pct":19,"tier":"uncommon"},{"min":138,"max":276,"pct":3,"tier":"rare"},{"min":276,"max":1208.5,"pct":0.3,"tier":"chase"}]},{"id":"pkmn-eras-collection-generation","title":"The Eras Collection: Generation","category":"limited_drop","categoryTitle":"Limited Drop","tier":"Master","price":99,"ev":96.03,"evRatio":0.97,"pProfit":25.4,"jackpotMax":1584,"jackpotOdds":0.4,"buyback":0.846,"buckets":[{"min":60.3,"max":80,"pct":46.6,"tier":"base"},{"min":80,"max":99,"pct":28,"tier":"common"},{"min":99,"max":198,"pct":21,"tier":"uncommon"},{"min":198,"max":396,"pct":4,"tier":"rare"},{"min":396,"max":1584,"pct":0.4,"tier":"chase"}]},{"id":"pkmn-eras-collection-origins","title":"The Eras Collection: Origins","category":"limited_drop","categoryTitle":"Limited Drop","tier":"Master","price":129,"ev":125.13,"evRatio":0.97,"pProfit":21.1,"jackpotMax":2169,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":90.2,"max":110,"pct":42.9,"tier":"base"},{"min":110,"max":129,"pct":36,"tier":"common"},{"min":129,"max":258,"pct":19,"tier":"uncommon"},{"min":258,"max":516,"pct":2,"tier":"rare"},{"min":516,"max":2169,"pct":0.1,"tier":"chase"}]},{"id":"wildcard-basic-pack","title":"Wildcard Basic Pack","category":"wildcard","categoryTitle":"Wildcard","tier":"Basic","price":15,"ev":14.55,"evRatio":0.97,"pProfit":15,"jackpotMax":240,"jackpotOdds":1,"buyback":0.846,"buckets":[{"min":10.5,"max":13,"pct":49,"tier":"base"},{"min":13,"max":15,"pct":36,"tier":"common"},{"min":15,"max":30,"pct":14,"tier":"uncommon"},{"min":30,"max":240,"pct":1,"tier":"rare"}]},{"id":"wildcard-diamond-pack","title":"Wildcard Diamond Pack","category":"wildcard","categoryTitle":"Wildcard","tier":"Diamond","price":1000,"ev":970,"evRatio":0.97,"pProfit":22.2,"jackpotMax":16000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":700,"max":850,"pct":48.8,"tier":"base"},{"min":850,"max":1000,"pct":29,"tier":"common"},{"min":1000,"max":2000,"pct":20,"tier":"uncommon"},{"min":2000,"max":4000,"pct":2,"tier":"rare"},{"min":4000,"max":16000,"pct":0.2,"tier":"chase"}]},{"id":"wildcard-master-pack","title":"Wildcard Master Pack","category":"wildcard","categoryTitle":"Wildcard","tier":"Master","price":100,"ev":97,"evRatio":0.97,"pProfit":23.1,"jackpotMax":1600,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":70,"max":85,"pct":45.9,"tier":"base"},{"min":85,"max":100,"pct":31,"tier":"common"},{"min":100,"max":200,"pct":21,"tier":"uncommon"},{"min":200,"max":400,"pct":2,"tier":"rare"},{"min":400,"max":1600,"pct":0.1,"tier":"chase"}]},{"id":"wildcard-platinum-pack","title":"Wildcard Platinum Pack","category":"wildcard","categoryTitle":"Wildcard","tier":"Platinum","price":500,"ev":485,"evRatio":0.97,"pProfit":22.2,"jackpotMax":8000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":350,"max":425,"pct":49.8,"tier":"base"},{"min":425,"max":500,"pct":28,"tier":"common"},{"min":500,"max":1000,"pct":19,"tier":"uncommon"},{"min":1000,"max":2000,"pct":3,"tier":"rare"},{"min":2000,"max":8000,"pct":0.2,"tier":"chase"}]},{"id":"wildcard-pro-pack","title":"Wildcard Pro Pack","category":"wildcard","categoryTitle":"Wildcard","tier":"Pro","price":50,"ev":48.5,"evRatio":0.97,"pProfit":23.1,"jackpotMax":800,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":35,"max":45,"pct":58.9,"tier":"base"},{"min":45,"max":50,"pct":18,"tier":"common"},{"min":50,"max":100,"pct":20,"tier":"uncommon"},{"min":100,"max":200,"pct":3,"tier":"rare"},{"min":200,"max":800,"pct":0.1,"tier":"chase"}]},{"id":"wildcard-starter-pack","title":"Wildcard Starter Pack","category":"wildcard","categoryTitle":"Wildcard","tier":"Starter","price":25,"ev":24.25,"evRatio":0.97,"pProfit":21.1,"jackpotMax":400,"jackpotOdds":0.1,"buyback":0.846,"buckets":[{"min":17.5,"max":21,"pct":43.9,"tier":"base"},{"min":21,"max":25,"pct":35,"tier":"common"},{"min":25,"max":50,"pct":19,"tier":"uncommon"},{"min":50,"max":100,"pct":2,"tier":"rare"},{"min":100,"max":400,"pct":0.1,"tier":"chase"}]},{"id":"wildcard-ultra-pack","title":"Wildcard Ultra Pack","category":"wildcard","categoryTitle":"Wildcard","tier":"Master","price":250,"ev":242.5,"evRatio":0.97,"pProfit":23.2,"jackpotMax":4000,"jackpotOdds":0.2,"buyback":0.846,"buckets":[{"min":175,"max":215,"pct":51.8,"tier":"base"},{"min":215,"max":250,"pct":25,"tier":"common"},{"min":250,"max":500,"pct":20,"tier":"uncommon"},{"min":500,"max":1000,"pct":3,"tier":"rare"},{"min":1000,"max":4000,"pct":0.2,"tier":"chase"}]}];
+const PRICE = [{"category":"pokemon","monthly":[{"month":"2025-07","value":100.0},{"month":"2025-08","value":105.8},{"month":"2025-09","value":113.1},{"month":"2025-10","value":128.6},{"month":"2025-11","value":135.7},{"month":"2025-12","value":142.7},{"month":"2026-01","value":151.6},{"month":"2026-02","value":162.2},{"month":"2026-03","value":184.6},{"month":"2026-04","value":240.5},{"month":"2026-05","value":252.4},{"month":"2026-06","value":274.1},{"month":"2026-07","value":299.7}],"unit":"Card Ladder Pokemon Index normalized to 100 at start of July 2025 (raw index: 25,784 on 2025-07-06 to 77,267 on 2026-07-10; tracks ~9,496 graded cards, ~$4.48B market cap)","change3m":23.6,"change6m":93.1,"change12m":193.1,"estimated":false,"sources":["https://www.cardladder.com/indexes/pokemon","https://finance.yahoo.com/news/pok-mon-cards-3-261-140108492.html","https://www.cnbc.com/2026/03/29/pokemon-card-values-rise-logan-paul-pikachu-auction.html","https://www.pokemonpricetracker.com/blog/posts/pokemon-card-market-crash-2026-what-really-happened"],"narrative":"Graded Pokemon cards were one of the best-performing asset classes of the year: the Card Ladder Pokemon Index nearly tripled, up 193% from July 2025 to July 2026. Gains were steady through H2 2025 (+43% Jul-Dec) then went vertical in Feb-Apr 2026 (+48% in that window alone) as Pokemon's 30th-anniversary hype, record PSA submission volume (26.8M cards graded in 2025; 97 of PSA's top-100 graded cards were Pokemon), and mainstream moments like the Logan Paul Pikachu auction pulled in new money, with vintage high-grade WOTC slabs leading. The rally was still intact in July 2026 (+23.6% over the trailing 3 months), even as low-end modern singles quietly corrected 30-50% beneath the index's vintage-weighted surface.","group":"pkmn","label":"Pok\u00e9mon \u2014 graded cards"},{"category":"onepiece","monthly":[{"month":"2025-07","value":100},{"month":"2025-08","value":107},{"month":"2025-09","value":119},{"month":"2025-10","value":136},{"month":"2025-11","value":163},{"month":"2025-12","value":192},{"month":"2026-01","value":219},{"month":"2026-02","value":230},{"month":"2026-03","value":218},{"month":"2026-04","value":210},{"month":"2026-05","value":227},{"month":"2026-06","value":234},{"month":"2026-07","value":238}],"unit":"Index of One Piece TCG graded/chase singles market value (Card Ladder-anchored), July 2025 = 100","change3m":13.3,"change6m":8.7,"change12m":138,"sources":["https://www.cardladder.com/indexes/onepiece","https://cardchat.substack.com/p/the-one-piece-card-boom-explained","https://one-piece-tcg.com/guides/one-piece-tcg-investment-market-analysis-2026","https://tcgking.nl/blogs/investing","https://www.si.com/collectibles/monkey-d-luffy-card-prices-surge-215-as-one-piece-demand-explodes","https://tcgaegis.com/blog/en/one-piece-tcg-prices"],"narrative":"One Piece TCG graded and chase singles were among the hottest collectible asset classes of the year: Card Ladder's One Piece index gained ~119% in the six months to late January 2026 (+61.4% in three months), fueled by the November 2025 OP-13 launch, six-figure record sales (Luffy PSA 10 $99.7K, a $315.6K CGC 10 gold promo), and record grading volume with Luffy the #3 most-graded TCG card at PSA. A February-April 2026 index-level pullback (~-9% from the early-February blowoff peak) gave way to a manga-rare and vintage-sealed-led recovery into summer, leaving the class up roughly +138% year over year with 20-50% weekly volatility on individual chase cards.","estimated":true,"group":"onepiece","label":"One Piece TCG"},{"category":"sports","monthly":[{"month":"2025-07","value":100.0},{"month":"2025-08","value":102.8},{"month":"2025-09","value":104.0},{"month":"2025-10","value":105.3},{"month":"2025-11","value":106.5},{"month":"2025-12","value":108.0},{"month":"2026-01","value":110.0},{"month":"2026-02","value":112.5},{"month":"2026-03","value":115.5},{"month":"2026-04","value":117.5},{"month":"2026-05","value":119.0},{"month":"2026-06","value":120.0},{"month":"2026-07","value":121.0}],"unit":"Index, July 2025 = 100 \u2014 estimated CL50-style composite of graded sports cards (baseball, basketball, football, hockey, soccer), interpolated between eight sourced anchor points","estimated":true,"change3m":3.0,"change6m":10.0,"change12m":21.0,"subIndices":{"basketball":18,"football":6,"baseball":15,"soccer":60},"sources":["https://sports.yahoo.com/article/move-over-baseball-basketball-cards-203000093.html","https://sports.yahoo.com/article/hobby-bull-market-real-spectacular-150000363.html","https://www.si.com/collectibles/state-of-the-hobby-booming-card-sales-wax-prices","https://www.si.com/collectibles/gold-silver-stocks-baseball-cards-outperforming-traditional-assets","https://www.nerdbeak.com/news/sports-card-market-record-pace-march-2026","https://www.cllct.com/sports-collectibles/sports-cards/the-hobby-is-off-to-a-record-breaking-start-in-2026"],"narrative":"Graded sports cards rode a genuine bull market over the year: record online sales in June-August 2025 ($308M in July, $400M+ in August), the Card Ladder CL50 up roughly 28% in calendar 2025, and a record-shattering start to 2026 with March sales of $606M (double the prior year) and every Card Ladder index positive over the trailing 12 months as of May 2026. Gains were led by high-end vintage (iconic Mantle/Ruth/Robinson cards up 67-112% YoY) and basketball (+~18% YoY, soccer +~60%), while football lagged (+~6%) and low-end modern drew oversupply warnings. Momentum plateaued slightly in June 2026 as PSA paused value-tier grading under a 10M+ card backlog, leaving the composite up ~21% for the window.","group":"sports","label":"Sports Cards \u2014 graded"},{"category":"watches","monthly":[{"month":"2025-07","value":100.0},{"month":"2025-08","value":99.9},{"month":"2025-09","value":100.5},{"month":"2025-10","value":100.4},{"month":"2025-11","value":100.6},{"month":"2025-12","value":101.7},{"month":"2026-01","value":102.5},{"month":"2026-02","value":103.1},{"month":"2026-03","value":103.2},{"month":"2026-04","value":105.4},{"month":"2026-05","value":103.9},{"month":"2026-06","value":104.3},{"month":"2026-07","value":104.5}],"unit":"WatchCharts Overall Market Index (300 watches, top 10 brands, transaction-value weighted), month-end level normalized to July 2025 = 100; built from WatchCharts' published month-over-month changes","change3m":-0.9,"change6m":2.0,"change12m":4.5,"sources":["https://watchcharts.com/watches/price_index","https://watchcharts.com/articles/p/9374/june-2026-watch-market-update","https://watchcharts.com/articles/p/9033/december-and-full-year-2025-watch-market-update","https://www.forbes.com/sites/garthfriesen/2026/05/11/luxury-watch-prices-are-rising-again-with-big-gains-in-small-watches/","https://www.bloomberg.com/news/articles/2026-01-08/luxury-watch-prices-hit-a-two-year-high-in-the-secondary-market"],"narrative":"The secondary watch market bottomed in mid-2025 and staged a broad, steady recovery: small monthly gains through H2 2025 (Bloomberg's Subdial index rose 8% in calendar 2025, hitting a two-year high), then acceleration into Watches & Wonders 2026 (+2.1% in April, with the discontinued Rolex GMT 'Pepsi' up ~12% in Q1) before a -1.4% May correction as event hype faded. Morgan Stanley/WatchCharts logged three consecutive quarters of >1% gains through Q1 2026, with 71% of tracked brands positive; Patek Philippe led 12-month gains at +18%, with Rolex and Cartier each around +9%. Broad-index compounding gives ~+4.5% for the 12 months; hotter headline figures (~+9-10%) measure narrower subsets.","estimated":true,"rolex12m":9,"group":"watches","label":"Luxury Watches"},{"category":"comics","monthly":[{"month":"2025-07","value":100.0},{"month":"2025-08","value":99.7},{"month":"2025-09","value":99.5},{"month":"2025-10","value":99.2},{"month":"2025-11","value":98.9},{"month":"2025-12","value":98.6},{"month":"2026-01","value":98.5},{"month":"2026-02","value":99.1},{"month":"2026-03","value":99.9},{"month":"2026-04","value":101.0},{"month":"2026-05","value":102.3},{"month":"2026-06","value":103.9},{"month":"2026-07","value":104.0}],"unit":"Equal-weight composite of GoCollect Silver Age, Bronze Age, and Modern Age Collectible Price Indices (CPI) for CGC-graded key issues, normalized to July 2025 = 100","change3m":3.0,"change6m":5.6,"change12m":4.0,"sources":["https://gocollect.com/cpi/comics/overview","https://gocollect.com/blog/cpi-2025-year-in-review","https://gocollect.com/blog/modern-age-leading-a-market-comeback","https://gocollect.com/blog/state-of-the-comic-book-market-2025","https://www.thecollectorhub.xyz/articles/2025-year-in-review-top-of-the-stack-cgc-graded-comics"],"narrative":"Graded comics spent H2 2025 grinding out the bottom of a 3.5-year bear market, with GoCollect's Silver Age CPI finishing 2025 down 6.18% and Bronze Age down 6.66% while Modern Age keys (Invincible #1, Walking Dead #1, NYX #3) eked out +2.36%. The market inflected in early 2026: from January to late June the Modern Age CPI surged about 15.3%, Bronze turned positive (+0.86%), and Silver flattened (-0.06%), producing a Modern-led composite gain of roughly +4% over the 12 months. Vintage keys stabilized rather than rallied, with Golden Age and blue-chip first appearances holding value best while speculative moderns without media catalysts stayed well below 2021-2023 peaks.","estimated":true,"group":"comics","label":"Comics \u2014 CGC graded"},{"category":"coins","monthly":[{"month":"2025-07","value":100.0},{"month":"2025-08","value":99.92},{"month":"2025-09","value":99.84},{"month":"2025-10","value":99.75},{"month":"2025-11","value":99.67},{"month":"2025-12","value":99.59},{"month":"2026-01","value":99.51},{"month":"2026-02","value":99.43},{"month":"2026-03","value":99.34},{"month":"2026-04","value":99.62},{"month":"2026-05","value":99.57},{"month":"2026-06","value":99.31},{"month":"2026-07","value":99.31}],"unit":"PCGS3000 Rare Coin Index, normalized to July 2025 reading ($73,590.83 on 7/28/2025) = 100; latest real reading $73,083.23 on 6/25/2026, carried into July 2026","change3m":-0.31,"change6m":-0.2,"change12m":-0.69,"sources":["https://www.pcgs.com/prices/coin-index/pcgs3000","http://web.archive.org/web/20260626152247/https://www.pcgs.com/prices/coin-index/pcgs3000","http://web.archive.org/web/20250802173107/https://www.pcgs.com/prices/coin-index/pcgs3000","https://coinweek.com/cac-coins-bring-huge-auction-premiums-in-may-2026/"],"narrative":"Graded rare US coins were essentially flat over the period: the PCGS3000 index peaked at $73,590.83 on 7/28/2025 (its 12-month high) and ended at $73,083.23 on 6/25/2026, down 0.7% from that peak and just 0.1% above its 12-month low. Gold's big run (spot ~$3,363/oz in Aug 2025 to ~$4,083/oz in June 2026, +21%) lifted bullion and generic gold coin material but did not translate into broad rare-coin index gains, which stayed inside a razor-thin ~0.8% band all year. Strength was concentrated in premium quality segments, with CAC-stickered coins commanding large auction premiums in 2026 while the broad index drifted sideways.","estimated":true,"group":"coins","label":"Graded Coins"}];
+const PULLED = "July 11, 2026";
+
+/* ---------- category grouping ---------- */
+const GROUPS = [
+  {id:'pkmn',     label:'Pokémon',     color:'var(--c-pkmn)',     hex:'#3987e5', match:['pkmn']},
+  {id:'sports',   label:'Sports',      color:'var(--c-sports)',   hex:'#199e70', match:['baseball','basketball','football','hockey','soccer','sports']},
+  {id:'onepiece', label:'One Piece',   color:'var(--c-onepiece)', hex:'#c98500', match:['onepiece']},
+  {id:'coins',    label:'Graded Coins',color:'var(--c-coins)',    hex:'#008300', match:['coins']},
+  {id:'watches',  label:'Watches',     color:'var(--c-watches)',  hex:'#9085e9', match:['watches']},
+  {id:'comics',   label:'Comics',      color:'var(--c-comics)',   hex:'#e66767', match:['comics']},
+  {id:'mtg',      label:'MTG / Sealed',color:'var(--c-mtg)',      hex:'#d55181', match:['magic_the_gathering','booster']},
+  {id:'wild',     label:'Wildcard / Mixed', color:'var(--c-wild)',hex:'#d95926', match:['wildcard','limited_drop']},
+];
+function groupOf(c, title){
+  if ((c === 'limited_drop' || c === 'wildcard' || c === 'booster') && title){
+    const t = title.toLowerCase();
+    if (/pok|eras collection/.test(t)) return GROUPS[0];
+    if (/one piece/.test(t)) return GROUPS[2];
+    if (/magic|mtg/.test(t)) return GROUPS[6];
+  }
+  return GROUPS.find(g => g.match.includes(c)) || GROUPS[7];
+}
+
+/* ---------- tooltip ---------- */
+const tt = document.getElementById('tt');
+function showTT(html, x, y){
+  tt.innerHTML = html; tt.style.display = 'block';
+  const r = tt.getBoundingClientRect();
+  tt.style.left = Math.min(x + 14, innerWidth - r.width - 10) + 'px';
+  tt.style.top  = Math.min(y + 14, innerHeight - r.height - 10) + 'px';
+}
+function hideTT(){ tt.style.display = 'none'; }
+
+/* ---------- stats ---------- */
+const sorted = [...ODDS].sort((a,b) => b.pProfit - a.pProfit);
+document.getElementById('statCount').textContent = ODDS.length;
+const best = sorted[0], worst = sorted[sorted.length-1];
+document.getElementById('statBest').textContent = best.pProfit.toFixed(1) + '%';
+document.getElementById('statBestL').textContent = 'Best hit rate — ' + best.title + ' ($' + best.price + ')';
+document.getElementById('statWorst').textContent = worst.pProfit.toFixed(1) + '%';
+document.getElementById('statWorstL').textContent = 'Worst hit rate — ' + worst.title + ' ($' + worst.price.toLocaleString() + ')';
+document.getElementById('stamp').textContent = 'Odds snapshot from api.courtyard.io · ' + PULLED;
+document.getElementById('footDate').textContent = PULLED;
+
+/* ---------- legend ---------- */
+document.getElementById('oddsLegend').innerHTML = GROUPS
+  .filter(g => ODDS.some(p => groupOf(p.category, p.title) === g))
+  .map(g => `<span><i style="background:${g.hex}"></i>${g.label}</span>`).join('');
+
+/* ---------- odds bar chart ---------- */
+function fmt$(n){ return '$' + (n >= 1000 ? (n/1000).toFixed(n%1000?1:0) + 'k' : n); }
+function renderBars(n){
+  const rows = sorted.slice(0, n);
+  const rowH = 26, labW = 235, valW = 52, W = 980, H = rows.length * rowH + 34;
+  const plotW = W - labW - valW - 20;
+  const max = Math.ceil(sorted[0].pProfit / 5) * 5;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:760px" role="img" aria-label="Hit rate by pack">`;
+  for (let g = 0; g <= max; g += 5){
+    const x = labW + g / max * plotW;
+    s += `<line x1="${x}" y1="8" x2="${x}" y2="${H-26}" stroke="var(--grid)" stroke-width="1"/>`;
+    s += `<text x="${x}" y="${H-9}" fill="var(--muted)" font-size="11" text-anchor="middle">${g}%</text>`;
+  }
+  rows.forEach((p, i) => {
+    const y = 12 + i * rowH, grp = groupOf(p.category, p.title);
+    const w = Math.max(2, p.pProfit / max * plotW);
+    s += `<text x="${labW-10}" y="${y+13}" fill="var(--ink-2)" font-size="12" text-anchor="end">${p.title.length>32?p.title.slice(0,31)+'…':p.title}</text>`;
+    s += `<rect class="bar" data-i="${sorted.indexOf(p)}" x="${labW}" y="${y}" width="${w}" height="${rowH-8}" rx="4" fill="${grp.hex}"/>`;
+    s += `<text x="${labW+w+7}" y="${y+13}" fill="var(--ink)" font-size="12" font-weight="700" style="font-variant-numeric:tabular-nums">${p.pProfit.toFixed(1)}%</text>`;
+  });
+  s += '</svg>';
+  const el = document.getElementById('oddsChart');
+  el.innerHTML = s;
+  el.querySelectorAll('.bar').forEach(b => {
+    b.addEventListener('mousemove', e => {
+      const p = sorted[+b.dataset.i], g = groupOf(p.category, p.title);
+      showTT(`<b>${p.title}</b><br>${g.label} · $${p.price.toLocaleString()} · ${p.tier||''}<br>
+        Hit rate ≥ price: <b>${p.pProfit.toFixed(1)}%</b><br>
+        EV: $${p.ev.toLocaleString()} (${(p.evRatio*100).toFixed(1)}%)<br>
+        Jackpot: up to ${fmt$(p.jackpotMax)} (${p.jackpotOdds.toFixed(2)}% odds)`, e.clientX, e.clientY);
+    });
+    b.addEventListener('mouseleave', hideTT);
+  });
+}
+renderBars(20);
+document.getElementById('oddsToggle').addEventListener('click', e => {
+  const btn = e.target.closest('button'); if(!btn) return;
+  document.querySelectorAll('#oddsToggle button').forEach(b => b.classList.toggle('on', b === btn));
+  renderBars(+btn.dataset.n);
+});
+
+/* ---------- odds table ---------- */
+const COLS = [
+  {k:'title', l:'Pack', fn:p=>{const g=groupOf(p.category, p.title);return `<span class="cat-chip"><i style="background:${g.hex}"></i>${p.title}</span>`}},
+  {k:'price', l:'Price', fn:p=>'$'+p.price.toLocaleString()},
+  {k:'pProfit', l:'Hit rate ≥ price', fn:p=>p.pProfit.toFixed(1)+'%'},
+  {k:'evRatio', l:'EV %', fn:p=>(p.evRatio*100).toFixed(1)+'%'},
+  {k:'ev', l:'EV $', fn:p=>'$'+p.ev.toLocaleString()},
+  {k:'jackpotMax', l:'Jackpot max', fn:p=>fmt$(p.jackpotMax)},
+  {k:'jackpotOdds', l:'Jackpot odds', fn:p=>p.jackpotOdds.toFixed(2)+'%'},
+  {k:'buyback', l:'Buyback', fn:p=>p.buyback?(p.buyback*100).toFixed(1)+'%':'—'},
+];
+let sortK = 'pProfit', sortDir = -1;
+function renderTable(){
+  const rows = [...ODDS].sort((a,b) => {
+    const va=a[sortK], vb=b[sortK];
+    return (typeof va === 'string' ? va.localeCompare(vb) : va - vb) * sortDir;
+  });
+  document.getElementById('oddsTable').innerHTML =
+    '<thead><tr>' + COLS.map(c =>
+      `<th data-k="${c.k}">${c.l} ${sortK===c.k?`<span class="arrow">${sortDir<0?'▼':'▲'}</span>`:''}</th>`).join('') +
+    '</tr></thead><tbody>' +
+    rows.map(p => '<tr>' + COLS.map(c => `<td class="num">${c.fn(p)}</td>`).join('') + '</tr>').join('') +
+    '</tbody>';
+}
+renderTable();
+document.getElementById('oddsTable').addEventListener('click', e => {
+  const th = e.target.closest('th'); if(!th) return;
+  const k = th.dataset.k;
+  if (sortK === k) sortDir *= -1; else { sortK = k; sortDir = -1; }
+  renderTable();
+});
+
+/* ---------- collection line charts ---------- */
+function chip(label, v){
+  if (v == null) return '';
+  const cls = v > 1 ? 'up' : v < -1 ? 'down' : 'flat';
+  const sign = v > 0 ? '+' : '';
+  return `<span class="chip ${cls}"><small>${label}</small>${sign}${v.toFixed(1)}%</span>`;
+}
+function lineChart(c, grp){
+  const W = 520, H = 210, padL = 44, padR = 14, padT = 14, padB = 26;
+  const vals = c.monthly.map(m => m.value);
+  const lo = Math.min(...vals), hi = Math.max(...vals);
+  const span = Math.max(hi - lo, 4), y0 = lo - span*0.08, y1 = hi + span*0.08;
+  const X = i => padL + i / (vals.length-1) * (W - padL - padR);
+  const Y = v => padT + (1 - (v - y0)/(y1 - y0)) * (H - padT - padB);
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${c.label} 12-month index">`;
+  const steps = 4;
+  for (let i = 0; i <= steps; i++){
+    const v = y0 + (y1-y0) * i/steps, y = Y(v);
+    s += `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="var(--grid)" stroke-width="1"/>`;
+    s += `<text x="${padL-7}" y="${y+4}" fill="var(--muted)" font-size="10.5" text-anchor="end" style="font-variant-numeric:tabular-nums">${Math.round(v)}</text>`;
+  }
+  const base = Y(100);
+  if (base > padT && base < H - padB)
+    s += `<line x1="${padL}" y1="${base}" x2="${W-padR}" y2="${base}" stroke="var(--baseline)" stroke-width="1" stroke-dasharray="4 4"/>`;
+  c.monthly.forEach((m, i) => {
+    if (i % 3 === 0 || i === vals.length-1){
+      const [yy, mm] = m.month.split('-');
+      const lab = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+mm-1] + ' ’' + yy.slice(2);
+      s += `<text x="${X(i)}" y="${H-8}" fill="var(--muted)" font-size="10.5" text-anchor="middle">${lab}</text>`;
+    }
+  });
+  const area = vals.map((v,i)=>`${i?'L':'M'}${X(i)},${Y(v)}`).join(' ') + ` L${X(vals.length-1)},${H-padB} L${X(0)},${H-padB} Z`;
+  s += `<path d="${area}" fill="${grp.hex}" opacity="0.10"/>`;
+  const path = vals.map((v,i)=>`${i?'L':'M'}${X(i)},${Y(v)}`).join(' ');
+  s += `<path d="${path}" fill="none" stroke="${grp.hex}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+  const li = vals.length-1;
+  s += `<circle cx="${X(li)}" cy="${Y(vals[li])}" r="4" fill="${grp.hex}" stroke="var(--surface)" stroke-width="2"/>`;
+  s += `<text x="${X(li)-8}" y="${Y(vals[li]) - 10}" fill="var(--ink)" font-size="12" font-weight="700" text-anchor="end" style="font-variant-numeric:tabular-nums">${vals[li].toFixed(0)}</text>`;
+  s += `<line class="xh" x1="0" y1="${padT}" x2="0" y2="${H-padB}" stroke="var(--ink-2)" stroke-width="1" opacity="0" stroke-dasharray="3 3"/>`;
+  s += `<circle class="xh-dot" r="4" fill="${grp.hex}" stroke="var(--surface)" stroke-width="2" opacity="0"/>`;
+  s += `<rect class="hover-zone" x="${padL}" y="0" width="${W-padL-padR}" height="${H}" fill="transparent"/>`;
+  s += '</svg>';
+  return {svg:s, X, Y, W, padL, padR};
+}
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+function buildCollections(){
+  const grid = document.getElementById('collGrid');
+  let anyEst = false;
+  PRICE.forEach(c => {
+    const grp = GROUPS.find(g => g.id === c.group) || GROUPS[0];
+    if (c.estimated) anyEst = true;
+    const card = document.createElement('div');
+    card.className = 'card';
+    const {svg} = lineChart(c, grp);
+    card.innerHTML = `
+      <div class="coll-head">
+        <h3><i style="background:${grp.hex}"></i>${c.label}${c.estimated?' <span style="font-size:.7rem;color:var(--muted);font-weight:500">est. path</span>':''}</h3>
+        <div class="chips">${chip('3M', c.change3m)}${chip('6M', c.change6m)}${chip('12M', c.change12m)}</div>
+      </div>
+      <div style="font-size:.76rem;color:var(--muted);margin-bottom:8px">${c.unit || ''}</div>
+      ${svg}
+      <p class="narr">${c.narrative || ''}</p>
+      <p class="src">Sources: ${(c.sources||[]).map(u => { try{const h=new URL(u).hostname.replace('www.','');return `<a href="${u}" target="_blank" rel="noopener">${h}</a>`}catch(e){return ''} }).filter(Boolean).join(' · ')}</p>`;
+    grid.appendChild(card);
+    const svgEl = card.querySelector('svg');
+    const zone = svgEl.querySelector('.hover-zone');
+    const xh = svgEl.querySelector('.xh'), dot = svgEl.querySelector('.xh-dot');
+    zone.addEventListener('mousemove', e => {
+      const r = svgEl.getBoundingClientRect();
+      const sx = (e.clientX - r.left) / r.width * 520;
+      const n = c.monthly.length;
+      const i = Math.max(0, Math.min(n-1, Math.round((sx - 44) / (520 - 44 - 14) * (n-1))));
+      const m = c.monthly[i];
+      const {X, Y} = lineChart(c, grp);
+      xh.setAttribute('x1', X(i)); xh.setAttribute('x2', X(i)); xh.setAttribute('opacity', .5);
+      dot.setAttribute('cx', X(i)); dot.setAttribute('cy', Y(m.value)); dot.setAttribute('opacity', 1);
+      const [yy, mm] = m.month.split('-');
+      showTT(`<b>${MONTH_NAMES[+mm-1]} ${yy}</b><br>${c.label} index: <b>${m.value.toFixed(1)}</b><br>vs Jul 2025: ${(m.value-100)>=0?'+':''}${(m.value-100).toFixed(1)}%`, e.clientX, e.clientY);
+    });
+    zone.addEventListener('mouseleave', () => { xh.setAttribute('opacity',0); dot.setAttribute('opacity',0); hideTT(); });
+  });
+  document.getElementById('collNote').textContent = anyEst
+    ? 'Charts marked "est. path" interpolate the month-to-month shape between real, sourced data points (period returns or index snapshots) — anchor values are real, the in-between curve is an estimate.'
+    : '';
+}
+buildCollections();
+</script>
+</body>
+</html>
