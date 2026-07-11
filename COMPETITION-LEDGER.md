@@ -53,18 +53,19 @@ the actual cleared price. Courtyard FMV is never used directly for score.
     ≥ 50% of account value — if below, the next non-collection sale proceeds are banked, not
     re-deployed into step-ups. Lock gains; never let a lead turn back into inventory risk.
 
-## State (after Day 1, rip 2 — 2026-07-11)
+## State (after Day 1 complete — 3 rips, 2026-07-11)
 
 | | |
 |---|---|
-| Cash | $400.00 |
+| Cash | $350.00 |
 | Cards held (collection) | none |
-| Cards listed | 2 — Kyros EB01-040 CGC 10 @ $52 (mark $39.51) · Lilith OP13-111 SP Alt PSA 10 @ $139 (mark $105.75) |
+| Cards listed | 3 of 4 cap — Kyros EB01-040 CGC 10 @ $52 (mark $39.51) · Lilith OP13-111 SP PSA 10 @ $139 (mark $105.75) · Cavendish OP10-045 CGC 10 @ $43 (mark $32.66) |
 | Cleared sales to date | $0.00 |
-| Courtyard points | 132 (66/pack × 2; not scored until redemption value confirmed) |
+| Courtyard points | 198 (66/pack × 3; not scored until redemption value confirmed) |
 | Step-up unlocked | no ($0 / $199 cleared sales — one Lilith sale clears it alone) |
-| Rip W/L | 1W – 1L |
-| Account value (mark-to-bid) | **$545.26** (+9.1% from $500) |
+| Rip W/L | 1W – 2L (in line with ~23% hit rate) |
+| Account value (mark-to-bid) | **$527.92** (+5.6% from $500) |
+| ⚠️ Inventory note | ONE more unsold listing hits the 4-cap → base bets pause until a sale clears |
 | ChatGPT account value (last known) | ~$492.00 (rip #1: $25 Sports Starter → Trey Murphy III Silver Prizm PSA 9, FMV $20.10, mark $17.00, listed $24.99 = 124% FMV; ignoring a $19.60 offer) |
 
 ## Day log
@@ -73,6 +74,7 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 |---|------|------|------|--------------------|-----|------------|----------|-----------|-----------|
 | 1 | 2026-07-11 | One Piece Pro Pack | $50 | Kyros EB01-040 (Borderless) Alt Art, Leader Parallel — Memorial Collection 2024 (CGC 10 PRISTINE) | $46.70 | $39.51 | LIST @ $52 (leader alt-art segment +30.7% YTD; not core crew → no collection slot; buyback = −$10.49, rejected) | $450.00 | $489.51 |
 | 2 | 2026-07-11 | One Piece Pro Pack | $50 | **Lilith OP13-111 Special Alternate Art — Carrying on His Will (PSA 10 GEM MINT)** — $100-200 bucket, 3% odds, 2.5× pack | $125.00 | $105.75 | **WIN.** LIST @ $139 (OP13 = hottest set, SP alts = momentum segment; sale would clear step-up alone; buyback rejected) | $400.00 | $545.26 |
+| 3 | 2026-07-11 | One Piece Pro Pack | $50 | Cavendish OP10-045 (Borderless) Alt Art — Royal Blood 2025 (CGC 10 PRISTINE) — floor bucket | $38.60 | $32.66 | miss. LIST @ $43 (borderless alt CGC 10, rising segment; buyback = −$17.34, rejected) | $350.00 | $527.92 |
 
 ## Reprice queue (calendar-based — check FIRST at every Jason check-in and surface due actions)
 
@@ -80,6 +82,7 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 |------|--------|--------------|----------------|----------------|---------------------------|
 | Kyros EB01-040 CGC 10 | 2026-07-11 | $52 | 2026-07-18 | 2026-07-25 | reassess: hold-as-asset vs fire-sale vs buyback (bid then current) |
 | Lilith OP13-111 SP PSA 10 | 2026-07-11 | $139 | 2026-07-18 → $132 | 2026-07-25 → $125 (FMV) | floor $115 — never below; hot-set card, patience justified |
+| Cavendish OP10-045 CGC 10 | 2026-07-11 | $43 | 2026-07-18 → $41 | 2026-07-25 → $39 (FMV) | fire-sale candidate #1 if waterfall triggers (lowest mark) |
 
 **Standing protocol:** at EVERY check-in (trade day or not): (1) report each listing's age, price,
 and current buyback bid; (2) if today ≥ a reprice date, tell Jason the exact new price to set;
