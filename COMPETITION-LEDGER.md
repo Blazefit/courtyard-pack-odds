@@ -53,19 +53,19 @@ the actual cleared price. Courtyard FMV is never used directly for score.
     ≥ 50% of account value — if below, the next non-collection sale proceeds are banked, not
     re-deployed into step-ups. Lock gains; never let a lead turn back into inventory risk.
 
-## State (after Day 1 complete — 3 rips, 2026-07-11)
+## State (after Day 2, rip 4 — 2026-07-12)
 
 | | |
 |---|---|
-| Cash | $350.00 |
+| Cash | $300.00 |
 | Cards held (collection) | none |
-| Cards listed | 3 of 4 cap — Kyros EB01-040 CGC 10 @ $52 (mark $39.51) · Lilith OP13-111 SP PSA 10 @ $139 (mark $105.75) · Cavendish OP10-045 CGC 10 @ $43 (mark $32.66) |
+| Cards listed | **4 of 4 CAP** — Kyros @ $52 ($39.51) · Lilith @ $139 ($105.75) · Cavendish @ $43 ($32.66) · Carrot OP08-021 CGC 10 @ $42 ($31.64) |
 | Cleared sales to date | $0.00 |
-| Courtyard points | 198 (66/pack × 3; not scored until redemption value confirmed) |
-| Step-up unlocked | no ($0 / $199 cleared sales — one Lilith sale clears it alone) |
-| Rip W/L | 1W – 2L (in line with ~23% hit rate) |
-| Account value (mark-to-bid) | **$527.92** (+5.6% from $500) |
-| ⚠️ Inventory note | ONE more unsold listing hits the 4-cap → base bets pause until a sale clears |
+| Courtyard points | 264 (66/pack × 4; not scored until redemption value confirmed) |
+| Step-up unlocked | no ($0 / $199 — one Lilith sale clears it alone) |
+| Rip W/L | 1W – 3L (23% hit rate predicts ~1 in 4 — on script) |
+| Account value (mark-to-bid) | **$509.56** (+1.9% from $500) |
+| ⚠️ RIPS PAUSED | Inventory cap 4/4 — next rip unlocks only when a listing sells. 2 consecutive floor pulls (one more = cooling-off day anyway) |
 | ChatGPT account value (last known) | ~$467.50 after 3 rips, 0W-3L: Trey Murphy PSA 9 ($25 Sports Starter, mark $17.00, listed $24.99=124% FMV, ignoring $19.60/98% offer) · Mega Charizard X EX PSA 9 ($25 Pkmn Starter, mark $19.20, listed $26.99=119% FMV, ignoring $22.10/97% offer) · Shanks OP06-007 CGC 10 ($50 OP Pro, mark $31.30, UNLISTED). Pattern: anchors asks to pack cost, ignores near-FMV offers. |
 
 ## Day log
@@ -75,6 +75,7 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 | 1 | 2026-07-11 | One Piece Pro Pack | $50 | Kyros EB01-040 (Borderless) Alt Art, Leader Parallel — Memorial Collection 2024 (CGC 10 PRISTINE) | $46.70 | $39.51 | LIST @ $52 (leader alt-art segment +30.7% YTD; not core crew → no collection slot; buyback = −$10.49, rejected) | $450.00 | $489.51 |
 | 2 | 2026-07-11 | One Piece Pro Pack | $50 | **Lilith OP13-111 Special Alternate Art — Carrying on His Will (PSA 10 GEM MINT)** — $100-200 bucket, 3% odds, 2.5× pack | $125.00 | $105.75 | **WIN.** LIST @ $139 (OP13 = hottest set, SP alts = momentum segment; sale would clear step-up alone; buyback rejected) | $400.00 | $545.26 |
 | 3 | 2026-07-11 | One Piece Pro Pack | $50 | Cavendish OP10-045 (Borderless) Alt Art — Royal Blood 2025 (CGC 10 PRISTINE) — floor bucket | $38.60 | $32.66 | miss. LIST @ $43 (borderless alt CGC 10, rising segment; buyback = −$17.34, rejected) | $350.00 | $527.92 |
+| 4 | 2026-07-12 | One Piece Pro Pack | $50 | Carrot OP08-021 (Map Text Box) Alt Art — Two Legends (CGC 10 PRISTINE) — floor bucket | $37.40 | $31.64 | miss. LIST @ $42; best offer $33.65 (90% FMV) declined. **4/4 INVENTORY CAP — base bets paused until a sale clears** | $300.00 | $509.56 |
 
 ## Reprice queue (calendar-based — check FIRST at every Jason check-in and surface due actions)
 
@@ -83,6 +84,7 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 | Kyros EB01-040 CGC 10 | 2026-07-11 | $52 | 2026-07-18 | 2026-07-25 | reassess: hold-as-asset vs fire-sale vs buyback (bid then current) |
 | Lilith OP13-111 SP PSA 10 | 2026-07-11 | $139 | 2026-07-18 → $132 | 2026-07-25 → $125 (FMV) | floor $115 — never below; hot-set card, patience justified |
 | Cavendish OP10-045 CGC 10 | 2026-07-11 | $43 | 2026-07-18 → $41 | 2026-07-25 → $39 (FMV) | fire-sale candidate #1 if waterfall triggers (lowest mark) |
+| Carrot OP08-021 CGC 10 | 2026-07-12 | $42 | 2026-07-19 → $40 | 2026-07-26 → $38 (FMV) | fire-sale candidate #2 |
 
 **Standing protocol:** at EVERY check-in (trade day or not): (1) report each listing's age, price,
 and current buyback bid; (2) if today ≥ a reprice date, tell Jason the exact new price to set;
