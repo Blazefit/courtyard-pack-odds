@@ -57,9 +57,9 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 
 | | |
 |---|---|
-| Cash | $300.00 |
+| Cash | $285.30 |
 | Cards held (collection) | none |
-| Cards listed | **4 of 4 CAP** — Kyros @ $52 ($39.51) · Lilith @ $139 ($105.75) · Cavendish @ $43 ($32.66) · Carrot OP08-021 CGC 10 @ $42 ($31.64) |
+| Cards listed | **4 of 4 CAP** — Kyros @ $52 ($39.51) · Lilith @ $139 ($105.75) · Cavendish @ $43 ($32.66) · Carrot OP08-021 CGC 10 @ $42 ($31.64) — plus flip: Rebellion Crash booster @ $16.95 (mark $12.97, best offer) |
 | Cleared sales to date | $0.00 |
 | Courtyard points | 264 (66/pack × 4; not scored until redemption value confirmed) |
 | Step-up unlocked | no ($0 / $199 — one Lilith sale clears it alone) |
@@ -76,6 +76,7 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 | 2 | 2026-07-11 | One Piece Pro Pack | $50 | **Lilith OP13-111 Special Alternate Art — Carrying on His Will (PSA 10 GEM MINT)** — $100-200 bucket, 3% odds, 2.5× pack | $125.00 | $105.75 | **WIN.** LIST @ $139 (OP13 = hottest set, SP alts = momentum segment; sale would clear step-up alone; buyback rejected) | $400.00 | $545.26 |
 | 3 | 2026-07-11 | One Piece Pro Pack | $50 | Cavendish OP10-045 (Borderless) Alt Art — Royal Blood 2025 (CGC 10 PRISTINE) — floor bucket | $38.60 | $32.66 | miss. LIST @ $43 (borderless alt CGC 10, rising segment; buyback = −$17.34, rejected) | $350.00 | $527.92 |
 | 4 | 2026-07-12 | One Piece Pro Pack | $50 | Carrot OP08-021 (Map Text Box) Alt Art — Two Legends (CGC 10 PRISTINE) — floor bucket | $37.40 | $31.64 | miss. LIST @ $42; best offer $33.65 (90% FMV) declined. **4/4 INVENTORY CAP — base bets paused until a sale clears** | $300.00 | $509.56 |
+| F1 | 2026-07-12 | FLIP pilot: Rebellion Crash JP booster (marketplace buy @ 26% off) | $14.70 | Sealed booster, est $19.90 high-conf | $19.90 est | none — **no buyback on sealed boosters (pilot's key finding)** | LIST @ $16.95 (floor rose to $14.75 after our buy). Mark = best offer $12.97. Flip module now GRADED-CARDS-ONLY, dormant until scanner finds ≥20% off graded | $285.30 | $507.83 |
 
 ## Reprice queue (calendar-based — check FIRST at every Jason check-in and surface due actions)
 
