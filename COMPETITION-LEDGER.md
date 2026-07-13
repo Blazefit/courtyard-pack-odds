@@ -66,6 +66,12 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 | Rip W/L | 1W – 3L (23% hit rate predicts ~1 in 4 — on script) |
 | Account value (mark-to-bid) | **$509.56** (+1.9% from $500) |
 | ⚠️ RIPS PAUSED | Inventory cap 4/4 — next rip unlocks only when a listing sells. 2 consecutive floor pulls (one more = cooling-off day anyway) |
+
+### Day 3 (2026-07-13) — management day, no rip
+Lilith FMV $125→$139 (+11% in 2 days; ask now = FMV; theoretical buyback ~$117.59, mark kept at
+standing bid $105.75). Kyros $42.52 offer returned (91% FMV — still < 95% accept line). ChatGPT
+listed Shanks at $44.99 (122% FMV — third straight overpriced ask). No graded deals; flip dormant.
+OP Pro hit rate drifted 23.2%→22.1%. All offers declined. Account value $507.83 (marks unchanged).
 | ChatGPT account value (last known) | ~$467.50 after 3 rips, 0W-3L: Trey Murphy PSA 9 ($25 Sports Starter, mark $17.00, listed $24.99=124% FMV, ignoring $19.60/98% offer) · Mega Charizard X EX PSA 9 ($25 Pkmn Starter, mark $19.20, listed $26.99=119% FMV, ignoring $22.10/97% offer) · Shanks OP06-007 CGC 10 ($50 OP Pro, mark $31.30, UNLISTED). Pattern: anchors asks to pack cost, ignores near-FMV offers. |
 
 ## Day log
