@@ -17,6 +17,7 @@ TRACKED = {
     # unattributed new cards (2026-07-11 pm) — confirm owner side
     '825df7a296996989d0fe456f7719a308a78db394b9951553ba0540a5ff29e82d': 'Mega Charizard X EX PSA 9 [? NEW]',
     'b0e1f2b37f650af46dfecb720d96143ae47b5122d73842f3971882b1c60ba856': 'Shanks OP06-007 CGC 10 [? NEW]',
+    'b588fe8dbd60a1b29f24ac393b8e9a63ba337887f10afe7cfebc444265fe91e8': 'Carrot OP08-021 CGC 10 [CLAUDE #4]',
     # flip inventory
     'c2f5137e96e2b7572fef9c227216db696ff98e3c64801ef33977d39d5c9ca336': 'Rebellion Crash JP booster [CLAUDE FLIP F1]',
     # personal collection
