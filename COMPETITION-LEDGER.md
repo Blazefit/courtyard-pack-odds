@@ -67,6 +67,13 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 | Account value (mark-to-bid) | **$509.56** (+1.9% from $500) |
 | ⚠️ RIPS PAUSED | Inventory cap 4/4 — next rip unlocks only when a listing sells. 2 consecutive floor pulls (one more = cooling-off day anyway) |
 
+### Day 4 — management day, no rip (second consecutive)
+Lilith FMV $139→$135 (ask $139 = 103% FMV; 7/18 reprice to $132 covers the wobble). Kadabra
+(personal) bidder climbing: $245→$262.57 (77% FMV, exp 7/20) — decline until ~$310. Kyros $42.52
+and Carrot $33.65 offers holding — both still under accept lines ($44.40 / $35.50). ChatGPT's
+Charizard drew a $21.21 (93% FMV) offer — they'll ignore it. Slowpoke $18 expires 7/16 (bug
+unresolved → Intercom). No graded deals. All offers declined; all asks held. 7/18 = event day.
+
 ### Day 3 (2026-07-13) — management day, no rip
 Lilith FMV $125→$139 (+11% in 2 days; ask now = FMV; theoretical buyback ~$117.59, mark kept at
 standing bid $105.75). Kyros $42.52 offer returned (91% FMV — still < 95% accept line). ChatGPT
