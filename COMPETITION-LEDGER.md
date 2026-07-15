@@ -53,18 +53,19 @@ the actual cleared price. Courtyard FMV is never used directly for score.
     ≥ 50% of account value — if below, the next non-collection sale proceeds are banked, not
     re-deployed into step-ups. Lock gains; never let a lead turn back into inventory risk.
 
-## State (after Day 2, rip 4 — 2026-07-12)
+## State (after Day 5 — first sale + rip 5)
 
 | | |
 |---|---|
-| Cash | $285.30 |
+| Cash | $268.95 ($285.30 + $33.65 Carrot sale − $50 rip) |
 | Cards held (collection) | none |
-| Cards listed | **4 of 4 CAP** — Kyros @ $52 ($39.51) · Lilith @ $139 ($105.75) · Cavendish @ $43 ($32.66) · Carrot OP08-021 CGC 10 @ $42 ($31.64) — plus flip: Rebellion Crash booster @ $16.95 (mark $12.97, best offer) |
-| Cleared sales to date | $0.00 |
-| Courtyard points | 264 (66/pack × 4; not scored until redemption value confirmed) |
-| Step-up unlocked | no ($0 / $199 — one Lilith sale clears it alone) |
-| Rip W/L | 1W – 3L (23% hit rate predicts ~1 in 4 — on script) |
-| Account value (mark-to-bid) | **$509.56** (+1.9% from $500) |
+| Cards listed | **4 of 4 CAP again** — Kyros @ $52 ($39.51) · Lilith @ $139 ($105.75) · Cavendish @ $43 ($32.66) · **Law OP12-073 CGC 10 @ $44 ($33.08)** — plus flip: booster @ $16.95 ($12.97) |
+| Cleared sales to date | **$33.65** (Carrot, −$16.35 realized vs pack, +$2.01 over floor exit) |
+| Courtyard points | 330 (66/pack × 5; unscored) |
+| Step-up unlocked | no ($33.65 / $199) |
+| Rip W/L | 1W – 4L (23% hit predicts 1.15 in 5 — on script; Lilith carries) |
+| Account value (mark-to-bid) | **$492.92** (−1.4% from $500) |
+| Personal side (not scored) | Slowpoke sold $18 (101% FMV) ✓ · Kadabra listed $339, top offer $262.57 |
 | ⚠️ RIPS PAUSED | Inventory cap 4/4 — next rip unlocks only when a listing sells. 2 consecutive floor pulls (one more = cooling-off day anyway) |
 
 ### Day 5 — UNSTICK: accept Carrot $33.65, restart rips
@@ -98,6 +99,8 @@ OP Pro hit rate drifted 23.2%→22.1%. All offers declined. Account value $507.8
 | 3 | 2026-07-11 | One Piece Pro Pack | $50 | Cavendish OP10-045 (Borderless) Alt Art — Royal Blood 2025 (CGC 10 PRISTINE) — floor bucket | $38.60 | $32.66 | miss. LIST @ $43 (borderless alt CGC 10, rising segment; buyback = −$17.34, rejected) | $350.00 | $527.92 |
 | 4 | 2026-07-12 | One Piece Pro Pack | $50 | Carrot OP08-021 (Map Text Box) Alt Art — Two Legends (CGC 10 PRISTINE) — floor bucket | $37.40 | $31.64 | miss. LIST @ $42; best offer $33.65 (90% FMV) declined. **4/4 INVENTORY CAP — base bets paused until a sale clears** | $300.00 | $509.56 |
 | F1 | 2026-07-12 | FLIP pilot: Rebellion Crash JP booster (marketplace buy @ 26% off) | $14.70 | Sealed booster, est $19.90 high-conf | $19.90 est | none — **no buyback on sealed boosters (pilot's key finding)** | LIST @ $16.95 (floor rose to $14.75 after our buy). Mark = best offer $12.97. Flip module now GRADED-CARDS-ONLY, dormant until scanner finds ≥20% off graded | $285.30 | $507.83 |
+| S1 | Day 5 | **SALE: Carrot OP08-021** | — | sold via offer accept | — | — | **+$33.65 cash** (−$16.35 realized vs pack; +$2.01 over floor). First cleared sale; cap 4/4→3/4 | $318.95 | — |
+| 5 | Day 5 | One Piece Pro Pack | $50 | Trafalgar Law OP12-073 (Borderless) Alt Art — Legacy of the Master (CGC 10 PRISTINE) — floor bucket, but top-tier character | $39.10 | $33.08 | miss. LIST @ $44 (Law premium — top-3 fan-favorite, alts outperform set). Cap back to 4/4 | $268.95 | $492.92 |
 
 ## Reprice queue (calendar-based — check FIRST at every Jason check-in and surface due actions)
 
@@ -106,7 +109,8 @@ OP Pro hit rate drifted 23.2%→22.1%. All offers declined. Account value $507.8
 | Kyros EB01-040 CGC 10 | 2026-07-11 | $52 | 2026-07-18 | 2026-07-25 | reassess: hold-as-asset vs fire-sale vs buyback (bid then current) |
 | Lilith OP13-111 SP PSA 10 | 2026-07-11 | $139 | 2026-07-18 → $132 | 2026-07-25 → $125 (FMV) | floor $115 — never below; hot-set card, patience justified |
 | Cavendish OP10-045 CGC 10 | 2026-07-11 | $43 | 2026-07-18 → $41 | 2026-07-25 → $39 (FMV) | fire-sale candidate #1 if waterfall triggers (lowest mark) |
-| Carrot OP08-021 CGC 10 | 2026-07-12 | $42 | 2026-07-19 → $40 | 2026-07-26 → $38 (FMV) | fire-sale candidate #2 |
+| ~~Carrot OP08-021~~ | ~~2026-07-12~~ | **SOLD $33.65 (Day 5)** | — | — | — |
+| Law OP12-073 CGC 10 | Day 5 | $44 | +7 days → $42 | +14 days → $39 (FMV) | Law premium justifies patience; floor bid $33.08 |
 
 **Standing protocol:** at EVERY check-in (trade day or not): (1) report each listing's age, price,
 and current buyback bid; (2) if today ≥ a reprice date, tell Jason the exact new price to set;
