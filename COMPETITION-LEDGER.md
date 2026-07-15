@@ -67,6 +67,14 @@ the actual cleared price. Courtyard FMV is never used directly for score.
 | Account value (mark-to-bid) | **$509.56** (+1.9% from $500) |
 | ⚠️ RIPS PAUSED | Inventory cap 4/4 — next rip unlocks only when a listing sells. 2 consecutive floor pulls (one more = cooling-off day anyway) |
 
+### Day 5 — UNSTICK: accept Carrot $33.65, restart rips
+Lilith FMV back to $139 (ask = 100% FMV). Kyros $42.52 bidder GONE (floor only) — lesson logged:
+small-card offers decay faster than they improve; amended accept line to ≥90% FMV on sub-$50
+cards. Carrot $33.65 (90% FMV) = ACCEPT → clears slot (3/4), books −$16.35 realized vs pack,
+restarts rip engine → rip 1× OP Pro $50 after clearing. ChatGPT Charizard FMV +13% to $25.70
+(their 26.99 ask now near-fair by accident). Slowpoke $18 expires 7/16. If Carrot sale clears:
+cleared-sales tracker $33.65 / $199 toward step-up.
+
 ### Day 4 — management day, no rip (second consecutive)
 Lilith FMV $139→$135 (ask $139 = 103% FMV; 7/18 reprice to $132 covers the wobble). Kadabra
 (personal) bidder climbing: $245→$262.57 (77% FMV, exp 7/20) — decline until ~$310. Kyros $42.52
